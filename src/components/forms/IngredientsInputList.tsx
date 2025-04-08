@@ -6,15 +6,15 @@ import {
     UseFieldArrayAppend,
     UseFieldArrayRemove
 } from "react-hook-form";
-import {FormData} from "@/components/forms/RecipeForm";
+import {RecipeFormData } from '@/components/forms/RecipeForm';
 import {PlusIcon, TrashIcon} from "@heroicons/react/24/outline";
 
 type Props = {
-    register: UseFormRegister<FormData>;
-    control: Control<FormData>;
-    errors: FieldErrors<FormData>;
-    fields: FieldArrayWithId<FormData, "ingredients", "id">[];
-    append: UseFieldArrayAppend<FormData, "ingredients">;
+    register: UseFormRegister<RecipeFormData>;
+    control: Control<RecipeFormData>;
+    errors: FieldErrors<RecipeFormData>;
+    fields: FieldArrayWithId<RecipeFormData, "ingredients", "id">[];
+    append: UseFieldArrayAppend<RecipeFormData, "ingredients">;
     remove: UseFieldArrayRemove;
 };
 
