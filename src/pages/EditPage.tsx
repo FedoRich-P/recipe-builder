@@ -33,9 +33,10 @@ export const EditPage = () => {
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 flex items-center justify-center py-10">
+      className="min-h-screen flex items-center justify-center py-10">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl">
-        <RecipeForm initialValues={initialValues}
+        <RecipeForm key={id}
+                    initialValues={initialValues}
                     onSubmit={handleSubmit}
                     onCancel={() => navigate('/')}
                     title="Редактировать рецепт"
