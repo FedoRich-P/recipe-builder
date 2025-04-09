@@ -46,7 +46,7 @@ export const IngredientsInput = (props: Props) => {
     } else if (lastField && lastField.value.trim() === '') {
       appendedRef.current = false;
     }
-  }, [fields.length, append]);
+  }, [fields, fields.length, append]);
 
 
   return (
@@ -55,7 +55,7 @@ export const IngredientsInput = (props: Props) => {
         Ингредиенты
       </label>
 
-      {fields.map((field: any, index: number) => (
+      {fields.map((field: FieldArrayWithId<RecipeFormData, 'ingredients', 'id'>, index: number) => (
         <div key={field.id} className="flex flex-col mb-2 relative">
           <div className="relative">
             <input
