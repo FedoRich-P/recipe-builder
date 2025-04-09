@@ -1,8 +1,6 @@
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Recipe, SortOption } from '@/shared/types/recipe';
 import { preloadedState } from "@/recipeDB";
-import { sortRecipes } from '@/shared/utils/recipeUtils';
 
 export type RecipeState = {
   allRecipes: Recipe[];
@@ -73,18 +71,10 @@ export const recipeSlice = createSlice({
     },
   },
   selectors: {
-    selectAllRecipes: (state: RecipeState) => sortRecipes(state.allRecipes, state.sortOption),
-    selectFavorites: (state: RecipeState) => sortRecipes(state.favorites, state.sortOption),
+    selectAllRecipes: (state: RecipeState) => state.allRecipes,
+    selectFavorites: (state: RecipeState) => state.favorites,
     selectSearchTerm: (state: RecipeState) => state.searchTerm,
     selectSortOption: (state: RecipeState) => state.sortOption,
-
-    selectFilteredRecipes: (state: RecipeState) => {
-      const filteredRecipes = state.searchTerm
-        ? state.allRecipes.filter(r => r.name.toLowerCase().includes(state.searchTerm.toLowerCase()))
-        : state.allRecipes;
-
-      return sortRecipes(filteredRecipes, state.sortOption);
-    }
   }
 });
 
@@ -102,7 +92,19 @@ export const {
   selectFavorites,
   selectSearchTerm,
   selectSortOption,
-  selectFilteredRecipes
 } = recipeSlice.selectors;
 
 export const recipeReducer = recipeSlice.reducer;
+
+// selectAllRecipes: (state: RecipeState) => sortRecipes(state.allRecipes, state.sortOption),
+//   selectFavorites: (state: RecipeState) => sortRecipes(state.favorites, state.sortOption),
+//   selectSearchTerm: (state: RecipeState) => state.searchTerm,
+//   selectSortOption: (state: RecipeState) => state.sortOption,
+//
+//   selectFilteredRecipes: (state: RecipeState) => {
+//   const filteredRecipes = state.searchTerm
+//     ? state.allRecipes.filter(r => r.name.toLowerCase().includes(state.searchTerm.toLowerCase()))
+//     : state.allRecipes;
+//
+//   return sortRecipes(filteredRecipes, state.sortOption);
+// }

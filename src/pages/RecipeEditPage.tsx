@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "@app/hooks";
 import { selectAllRecipes, updateRecipe } from "@/features/recipe/recipeSlice";
 import { RecipeForm, RecipeFormData } from '@/components/forms/RecipeForm';
 import { SubmitButton } from "@components/forms/SubmitButton";
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
 
 export const RecipeEditPage = () => {
   const { id } = useParams<{ id: string }>();

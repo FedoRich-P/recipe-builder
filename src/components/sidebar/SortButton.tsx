@@ -31,7 +31,7 @@ export const SortButton = ({
             className={`w-full flex items-center justify-center px-5 py-3 rounded-full text-sm ${
               active ? 'bg-orange-100 text-orange-700' : 'bg-gray-100 text-gray-700'
             }`}>
-      <span className="mr-2">{children}</span>
+      <span className="mr-2 whitespace-nowrap">{children}</span>
       {getSortIcon()}
     </button>
   );

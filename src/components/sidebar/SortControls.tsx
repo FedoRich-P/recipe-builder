@@ -25,21 +25,20 @@ export const SortControls = ({ className }: SortControlsProps) => {
   };
 
   return (
-    <div className={`space-y-2 ${className}`}>
-      <h3 className="font-medium text-gray-700">Sort Recipes</h3>
-      <div className="flex flex-wrap gap-2">
+    <div className={`space-y-2 `}>
+      <div className={`flex gap-2 ${className}`}>
         <SortButton active={sortOption.startsWith('name')}
                     sortKey="name"
                     currentSort={sortOption}
                     onClick={() => handleSortChange('name')}>
-          Name
+          Сортировать по названию
         </SortButton>
 
         <SortButton active={sortOption.startsWith('ingredients')}
                     sortKey="ingredients"
                     currentSort={sortOption}
                     onClick={() => handleSortChange('ingredients')}>
-          Ingredients
+          Сортировать по ингредиентам
         </SortButton>
       </div>
     </div>

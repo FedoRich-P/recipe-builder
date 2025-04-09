@@ -1,22 +1,17 @@
 import { RecipesList } from '@components/RecipesList/RecipesList';
 import { useAppSelector } from '@app/hooks';
 import { selectAllRecipes } from '@/features/recipe/recipeSlice';
+import { useFilteredSortedRecipes } from '@/shared/hooks/useFilteredSortedRecipes';
 
 export const RecipesPage = () => {
-  const recipes = useAppSelector(selectAllRecipes);
+  const allRecipes = useAppSelector(selectAllRecipes);
+  const visibleFavorites = useFilteredSortedRecipes(allRecipes);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <div className="flex flex-1">
-          <RecipesList recipes={recipes} />
+          <RecipesList recipes={visibleFavorites} />
       </div>
     </div>
   );
-
-  // return (
-  //   <div className="grid grid-cols-[320px_1fr] gap-8 min-h-screen p-8 bg-gray-50">
-  //     <Sidebar/>
-  //     <RecipesList recipes={recipes} />
-  //   </div>
-  // );
 };

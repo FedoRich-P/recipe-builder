@@ -1,8 +1,8 @@
 import { useForm, useFieldArray } from 'react-hook-form';
 import { RecipeNameInput } from './RecipeNameInput';
-import { IngredientsInputList } from './IngredientsInputList';
 import { PreparationStepsTextarea } from './PreparationStepsTextarea';
 import { SubmitButton } from './SubmitButton';
+import { IngredientsInput } from '@components/forms/IngredientsInput';
 
 export type RecipeFormData = {
   name: string;
@@ -53,12 +53,14 @@ export const RecipeForm = (props: RecipeFormProps) => {
           className="bg-gray-50 p-4 rounded-lg">
       <h3 className="font-medium text-gray-700 mb-3">{title}</h3>
       <RecipeNameInput register={register} error={errors.name} />
-      <IngredientsInputList register={register}
-                            control={control}
-                            errors={errors}
-                            fields={fields}
-                            append={append}
-                            remove={remove} />
+      <div className={'relative'}>
+        <IngredientsInput register={register}
+                         control={control}
+                         errors={errors}
+                         fields={fields}
+                         append={append}
+                         remove={remove} />
+      </div>
       <PreparationStepsTextarea register={register} error={errors.steps} />
       <SubmitButton text={buttonText} />
     </form>
