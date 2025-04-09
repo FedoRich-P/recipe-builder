@@ -1,17 +1,8 @@
-import { RecipesList } from '@components/RecipesList/RecipesList';
-import { useAppSelector } from '@app/hooks';
-import { selectAllRecipes } from '@/features/recipe/recipeSlice';
-import { useFilteredSortedRecipes } from '@/shared/hooks/useFilteredSortedRecipes';
+import { RecipesList } from '@/features/recipe/ui/RecipesList';
+import { useFilteredRecipes } from '@/features/recipe/lib/useFilteredRecipes';
 
 export const RecipesPage = () => {
-  const allRecipes = useAppSelector(selectAllRecipes);
-  const visibleFavorites = useFilteredSortedRecipes(allRecipes);
+  const visibleRecipes = useFilteredRecipes();
 
-  return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <div className="flex flex-1">
-          <RecipesList recipes={visibleFavorites} />
-      </div>
-    </div>
-  );
+  return  <RecipesList recipes={visibleRecipes} />
 };

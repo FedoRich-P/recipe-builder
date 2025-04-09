@@ -1,4 +1,4 @@
-import {RecipesState} from "@/shared/types/recipe";
+import {RecipesState} from "@/features/recipe/model/types/recipe";
 
 export const preloadedState: RecipesState = {
     recipes: [
