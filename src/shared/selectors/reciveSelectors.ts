@@ -16,7 +16,7 @@ export const makeFilteredSortedRecipes = () =>
           r.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
-      const sorted = [...filtered].sort((a, b) => {
+      return [...filtered].sort((a, b) => {
         switch (sortOption) {
           case "name-asc":
             return a.name.localeCompare(b.name);
@@ -30,8 +30,6 @@ export const makeFilteredSortedRecipes = () =>
             return 0;
         }
       });
-
-      return sorted;
     }
   );
 

@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {XMarkIcon} from "@heroicons/react/24/outline";
 import {SearchInput} from "@components/sidebar/SearchInput";
-import {SortControls} from "@components/sidebar/SortControls";
 import {StatsCounter} from "@components/sidebar/StatsCounter";
 import { RecipeForm, RecipeFormData } from '@components/forms/RecipeForm';
 import { useAppDispatch, useAppSelector } from '@app/hooks';
