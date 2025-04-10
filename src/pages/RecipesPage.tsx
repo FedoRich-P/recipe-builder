@@ -1,8 +1,11 @@
 import { RecipesList } from '@/features/recipe/ui/RecipesList';
-import { useFilteredRecipes } from '@/features/recipe/lib/useFilteredRecipes';
+import { useGetRecipesQuery } from '@/features/recipe/model/recipesSlice';
 
 export const RecipesPage = () => {
-  const visibleRecipes = useFilteredRecipes();
+  const { data, isLoading, error } = useGetRecipesQuery();
 
-  return  <RecipesList recipes={visibleRecipes} />
+  if (isLoading) return 'Loading...';
+  if (error) return 'Список рецептов пуст';
+
+  return <RecipesList recipes={data} />;
 };

@@ -15,11 +15,11 @@ export const IngredientsList = ({ ingredients, recipeName }: IngredientsListProp
   };
 
   return (<>
-      <h4 className="text-sm font-medium text-gray-500 mb-2">Ингредиенты :</h4>
+      <h4 className="text-base font-medium mb-2">Ингредиенты :</h4>
       <ul className="flex flex-wrap gap-1 mb-3">
         {ingredients.slice(0, 4).map((ingredient, index) => (
           <li key={index}
-              className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full truncate"
+              className="bg-gray-100 text-gray-700 text-base px-2 py-1 rounded-full truncate"
               style={{
                 flex: '1 1 0',
                 minWidth: 0,
@@ -31,7 +31,7 @@ export const IngredientsList = ({ ingredients, recipeName }: IngredientsListProp
         {ingredients.length > 4 && (
           <span ref={moreButtonRef}
                 onClick={handleMoreIngredientsClick}
-                className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full cursor-pointer truncate"
+                className="bg-gray-100 text-gray-700 text-xs p-2 rounded-full cursor-pointer truncate"
                 style={{
                   flex: '1 1 0',
                   minWidth: 0,
