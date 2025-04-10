@@ -29,7 +29,7 @@ export const Sidebar = () => {
   return (
     <>
       <aside
-        className={`fixed lg:sticky top-0 left-0 h-screen max-w-130 bg-white shadow-lg z-40 transition-all duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+        className={`fixed lg:sticky top-0 left-0 h-screen max-w-100 bg-white shadow-lg z-40 transition-all duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="p-4 h-full flex flex-col">
           <button onClick={() => setIsOpen(false)}
                   className="self-end lg:hidden p-2 mb-2 rounded-lg hover:bg-gray-100 transition-colors">

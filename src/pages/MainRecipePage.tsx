@@ -8,6 +8,7 @@ import { MobileMenuButton } from '@/shared/ui/buttons/MobileMenuButton';
 import { useState } from 'react';
 import { RecipeItem } from '@/features/recipe/ui/RecipeItem';
 import { NotFound } from '@/shared/ui/NotFound/NotFound';
+import { Loader } from '@components/Loader';
 
 export const MainRecipePage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,12 +19,7 @@ export const MainRecipePage = () => {
 
   const { data: recipe, isLoading, error } = useGetRecipeByIdQuery({ id });
 
-  if (isLoading) return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-    </div>
-  );
-
+  if (isLoading) return <Loader />;
   if (error || !recipe) return <NotFound />;
 
   const initialValues: RecipeFormData = {
@@ -65,7 +61,7 @@ export const MainRecipePage = () => {
           <div className="flex-grow flex items-center justify-center">
             <div className="w-full max-w-2xl bg-transparent rounded-xl shadow-2xl overflow-hidden">
               <RecipeItem recipe={recipe} isFavorite={recipe.favorite} className={'min-h-[50vh] block'} />
-              <div className="p-6 bg-gradient-to-t from-white/30 to-transparent dark:bg-gray-800/50 border-t">
+              <div className="bg-transparent mt-5">
                 {!showForm ? (
                   <div className="flex flex-col items-center space-y-4">
                     <button onClick={() => setShowForm(true)}
@@ -77,15 +73,13 @@ export const MainRecipePage = () => {
                     }
                   </div>
                 ) : (
-                  <div className="bg-gradient-to-t from-white/30 to-transparent dark:bg-gray-800 rounded-lg p-6">
-                    <RecipeForm key={id}
-                                initialValues={initialValues}
-                                onSubmit={handleSubmit}
-                                onCancel={() => setShowForm(false)}
-                                title="Редактировать рецепт"
-                                buttonText="Сохранить изменения" />
-                  </div>
-                )}
+                  <RecipeForm key={id}
+                              initialValues={initialValues}
+                              onSubmit={handleSubmit}
+                              onCancel={() => setShowForm(false)}
+                              title="Редактировать рецепт"
+                              buttonText="Сохранить изменения"
+                              className={'bg-gradient-to-r from-white/80 '} />)}
               </div>
             </div>
           </div>

@@ -62,11 +62,11 @@ export const RecipeItem = ({ recipe, isFavorite, className }: RecipeItemProps) =
         </div>
       </div>
 
-      <div className="p-4 flex flex-col flex-grow pb-0">
+      <div className=" px-4 flex flex-col flex-grow">
         <div className="flex-grow">
           <ul>
             {recipe.steps.map((step, i) => (
-              <li className={" text-gray-700 text-base rounded-full truncate mb-2"}>{i+1} / {step}</li>
+              <li key={i} className={" text-gray-700 text-sm rounded-full truncate mb-2"}>{i+1}. {step}</li>
             ))}
           </ul>
         </div>
@@ -75,7 +75,7 @@ export const RecipeItem = ({ recipe, isFavorite, className }: RecipeItemProps) =
       <FavoriteDeleteButtons isFavorite={isFavorite}
                              onToggleFavorite={handleToggleFavorite}
                              onDelete={handleDeleteRecipe}
-                             className={'justify-around p-4 pt-2'} />
+                             className={'justify-end gap-8 p-4 pt-0'} />
     </div>
   );
 };
