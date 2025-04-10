@@ -24,13 +24,11 @@ export const Sidebar = () => {
       steps: data.steps.split('\n'),
       favorite: false,
     };
-    dispatch(addRecipe(newRecipe));
+    // dispatch(addRecipe(newRecipe));
   };
 
   return (
     <>
-      {!isOpen && <MobileMenuButton onClick={() => setIsOpen(true)} />}
-
       <aside
         className={`fixed lg:sticky top-0 left-0 h-screen max-w-130 bg-white shadow-lg z-40 transition-all duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="p-4 h-full flex flex-col">
