@@ -1,5 +1,5 @@
 import { Recipe } from '@/features/recipe/model/types/recipe';
-import { ClockIcon, FireIcon, ArrowLongRightIcon } from '@heroicons/react/24/outline';
+import { ClockIcon, FireIcon } from '@heroicons/react/24/outline';
 import { useAppDispatch } from '@app/hooks';
 import { toggleFavorite, deleteRecipe } from '@/features/recipe/model/recipeSlice';
 import { NavLink } from 'react-router-dom';
@@ -7,12 +7,15 @@ import { IngredientsList } from '@/features/ingredients-filter/ui/IngredientsLis
 import { FavoriteDeleteButtons } from '@/shared/ui/buttons/FavoriteDeleteButtons';
 
 type RecipeItemProps = {
-  recipe: Recipe;
+  recipe: Recipe | undefined;
   isFavorite: boolean;
+  className?: string;
 };
 
-export const RecipeItem = ({ recipe, isFavorite }: RecipeItemProps) => {
+export const RecipeItem = ({ recipe, isFavorite, className }: RecipeItemProps) => {
   const dispatch = useAppDispatch();
+
+  if (!recipe) return <h2>Нет такого рецепта...</h2>;
 
   const handleToggleFavorite = () => {
     dispatch(toggleFavorite(recipe.id));
@@ -23,29 +26,56 @@ export const RecipeItem = ({ recipe, isFavorite }: RecipeItemProps) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <div className="flex justify-between p-5 pb-0">
-        <NavLink to={`/recipes/${recipe.id}`} className="flex items-center gap-2">
-          <h3 className="text-xl font-semibold text-gray-800">{recipe.name}</h3>
-          <ArrowLongRightIcon className="w-5 h-5 text-gray-500" />
-        </NavLink>
-        <FavoriteDeleteButtons isFavorite={isFavorite}
-                               onToggleFavorite={handleToggleFavorite}
-                               onDelete={handleDeleteRecipe} />
-      </div>
-      <div className="p-5 pt-0">
-        <IngredientsList ingredients={recipe.ingredients} recipeName={recipe.name} />
-        <div className="flex items-center justify-between text-sm text-gray-500 border-t pt-3">
-          <div className="flex items-center space-x-2">
-            <ClockIcon className="w-4 h-4" />
-            <span>25 mins</span>
+    <div
+      className={`bg-gradient-to-t from-white/70 to-transparent rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full`}>
+      <NavLink to={`/recipes/${Number(recipe.id)}`}
+               className={`relative block h-48 overflow-hidden group ${className}`}>
+        {recipe.imageUrl ? (
+          <img src={recipe.imageUrl}
+               alt={recipe.name}
+               className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105`}/>
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span className="text-gray-500">No image</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <FireIcon className="w-4 h-4" />
-            <span>320 kcal</span>
+        )}
+        <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-4">
+          <div className="flex justify-between text-sm text-white">
+            <div className="flex items-center space-x-2 bg-black/50 px-2 py-1 rounded">
+              <ClockIcon className="w-4 h-4" />
+              <span>{recipe.cookingTime} мин.</span>
+            </div>
+            <div className="flex items-center space-x-2 bg-black/50 px-2 py-1 rounded">
+              <FireIcon className="w-4 h-4" />
+              <span>{recipe.calories} ккал</span>
+            </div>
           </div>
+          <h3 className="text-xl font-bold text-white drop-shadow-md">
+            {recipe.name}
+          </h3>
+        </div>
+      </NavLink>
+
+      <div className="p-4 flex flex-col flex-grow pb-0">
+        <div className="flex-grow">
+          <IngredientsList ingredients={recipe.ingredients} recipeName={recipe.name} />
         </div>
       </div>
+
+      <div className=" px-4 flex flex-col flex-grow">
+        <div className="flex-grow">
+          <ul>
+            {recipe.steps.map((step, i) => (
+              <li key={i} className={" text-gray-700 text-sm rounded-full truncate mb-2"}>{i+1}. {step}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <FavoriteDeleteButtons isFavorite={isFavorite}
+                             onToggleFavorite={handleToggleFavorite}
+                             onDelete={handleDeleteRecipe}
+                             className={'justify-end gap-8 p-4 pt-0'} />
     </div>
   );
 };

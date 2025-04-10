@@ -18,10 +18,11 @@ type RecipeFormProps = {
   onSubmit?: (data: RecipeFormData) => void
   title?: string
   buttonText?: string
+  className?: string
 }
 
 export const RecipeForm = (props: RecipeFormProps) => {
-  const { initialValues, onCancel, title = 'Добавить рецепт', buttonText, onSubmit } = props;
+  const { initialValues, onCancel, title = 'Добавить рецепт', buttonText, onSubmit, className } = props;
 
   const [showToast, setShowToast] = useState(false);
   const [addedRecipeName, setAddedRecipeName] = useState('');
@@ -63,7 +64,7 @@ export const RecipeForm = (props: RecipeFormProps) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(handleFormSubmit)} className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+      <form onSubmit={handleSubmit(handleFormSubmit)} className={` p-4 rounded-lg border border-gray-200 ${className}`}>
         <h3 className="font-medium text-gray-700 mb-3">{title}</h3>
         <RecipeNameInput register={register} error={errors.name} />
         <IngredientsInput fields={fields}

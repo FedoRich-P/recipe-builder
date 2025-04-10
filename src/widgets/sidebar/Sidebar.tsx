@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { SearchInput } from '@/shared/ui/inputs/SearchInput';
-import { RecipeForm, RecipeFormData } from '@/shared/ui/forms/RecipeForm/RecipeForm';
+import { RecipeForm } from '@/shared/ui/forms/RecipeForm/RecipeForm';
 import { useAppDispatch } from '@app/hooks';
-import { addRecipe, setSearchTerm } from '@/features/recipe/model/recipeSlice';
-import { MobileMenuButton } from '@/shared/ui/buttons/MobileMenuButton';
+import { setSearchTerm } from '@/features/recipe/model/recipeSlice';
 import { IngredientFilter } from '@/features/ingredients-filter/ui/IngredientFilter';
 
 export const Sidebar = () => {
@@ -16,23 +15,21 @@ export const Sidebar = () => {
     dispatch(setSearchTerm(value));
   };
 
-  const handleSubmit = (data: RecipeFormData) => {
-    const newRecipe = {
-      id: Date.now().toString(),
-      name: data.name,
-      ingredients: data.ingredients.map(ing => ing.value),
-      steps: data.steps.split('\n'),
-      favorite: false,
-    };
-    dispatch(addRecipe(newRecipe));
+  const handleSubmit = () => {
+  //   // const newRecipe = {
+  //   //   id: Date.now().toString(),
+  //   //   name: data.name,
+  //   //   ingredients: data.ingredients.map(ing => ing.value),
+  //   //   steps: data.steps.split('\n'),
+  //   //   favorite: false,
+  //   // };
+  //   // dispatch(addRecipe(newRecipe));
   };
 
   return (
     <>
-      {!isOpen && <MobileMenuButton onClick={() => setIsOpen(true)} />}
-
       <aside
-        className={`fixed lg:sticky top-0 left-0 h-screen max-w-130 bg-white shadow-lg z-40 transition-all duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+        className={`fixed lg:sticky top-0 left-0 h-screen max-w-100 bg-white shadow-lg z-40 transition-all duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="p-4 h-full flex flex-col">
           <button onClick={() => setIsOpen(false)}
                   className="self-end lg:hidden p-2 mb-2 rounded-lg hover:bg-gray-100 transition-colors">
