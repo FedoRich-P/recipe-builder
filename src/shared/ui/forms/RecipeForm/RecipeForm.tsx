@@ -5,11 +5,15 @@ import { PreparationStepsTextarea } from './PreparationStepsTextarea';
 import { useState } from 'react';
 import { RecipeToast } from './RecipeToast';
 import { createPortal } from 'react-dom';
+import { FormInputGroup } from '@/shared/ui/forms/RecipeForm/FormInputGroup';
+import { FormButtonGroup } from '@/shared/ui/forms/RecipeForm/FormBottonGroup';
 
 export type RecipeFormData = {
   name: string
   ingredients: { value: string }[]
   steps: string
+  cookingTime?: string;
+  calories?: string;
 }
 
 type RecipeFormProps = {
@@ -38,6 +42,8 @@ export const RecipeForm = (props: RecipeFormProps) => {
       name: '',
       ingredients: [{ value: '' }],
       steps: '',
+      cookingTime: '',
+      calories: '',
     },
   });
 
@@ -47,7 +53,7 @@ export const RecipeForm = (props: RecipeFormProps) => {
   });
 
   const handleFormSubmit = (data: RecipeFormData) => {
-    if(onSubmit) onSubmit(data);
+    if (onSubmit) onSubmit(data);
     setAddedRecipeName(data.name);
     setShowToast(true);
     reset();
@@ -73,19 +79,11 @@ export const RecipeForm = (props: RecipeFormProps) => {
                           register={register}
                           control={control}
                           errors={errors} />
-
+        <FormInputGroup register={register}
+                        errors={errors} />
         <PreparationStepsTextarea register={register} error={errors.steps} />
-        <div className="flex justify-end gap-2 mt-4">
-          <button type="button"
-                  onClick={handleCancel}
-                  className="px-4 py-2 text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300">
-            Закрыть форму
-          </button>
-          <button type="submit"
-                  className="px-4 py-2 text-white bg-orange-500 rounded-lg hover:bg-orange-600 disabled:opacity-50">
-            {buttonText}
-          </button>
-        </div>
+        <FormButtonGroup  onCancel={handleCancel}
+                          submitButtonText={buttonText} />
       </form>
       {showToast && createPortal(
         <RecipeToast recipeName={addedRecipeName}
