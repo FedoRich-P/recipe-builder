@@ -1,31 +1,24 @@
 import { useState, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/hooks';
-import { selectAllRecipes, selectSelectedIngredients, setSelectedIngredients } from '@/features/recipe/model/recipeSlice';
+import {  selectSelectedIngredients, setSelectedIngredients } from '@/features/recipe/model/recipeSlice';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import { IngredientList } from '@/shared/ui/ingregients/IngredientList';
 import { SelectedIngredients } from '@/shared/ui/ingregients/SelectedIngredients';
+import { useGetRecipesQuery } from '@/features/recipe/model/recipesApi';
+import { getOrderedIngredients } from '@/shared/lib/utils/getOrderedIngredients';
 
 export const IngredientFilter = () => {
-  const dispatch = useAppDispatch();
-  const allRecipes = useAppSelector(selectAllRecipes);
-  const selected = useAppSelector(selectSelectedIngredients);
+
   const [isOpen, setIsOpen] = useState(true);
 
+  const { data: allRecipes } = useGetRecipesQuery();
+
+  const dispatch = useAppDispatch();
+
+  const selected = useAppSelector(selectSelectedIngredients);
+
   const orderedIngredients = useMemo(() => {
-    if (!allRecipes?.length) return [];
-
-    const all = allRecipes.flatMap((r) => r.ingredients);
-    const unique = Array.from(new Set(all));
-
-    return [
-      ...selected.filter(ing => unique.includes(ing)),
-      ...unique.filter(ing => !selected.includes(ing)),
-    ].sort((a, b) => {
-      if (!selected.includes(a) && !selected.includes(b)) {
-        return a.localeCompare(b);
-      }
-      return 0;
-    });
+    return getOrderedIngredients(allRecipes, selected);
   }, [allRecipes, selected]);
 
   const toggleIngredient = (ingredient: string) => {
@@ -49,7 +42,8 @@ export const IngredientFilter = () => {
       </div>
 
       {isOpen && (
-        <><IngredientList ingredients={orderedIngredients}
+        <>
+          <IngredientList ingredients={orderedIngredients}
                           selected={selected}
                           onToggle={toggleIngredient} />
           <SelectedIngredients ingredients={selected}
@@ -60,3 +54,22 @@ export const IngredientFilter = () => {
     </div>
   );
 };
+
+
+// const orderedIngredients = useMemo(() => {
+//   if (!allRecipes?.length) return [];
+//
+//   const all = allRecipes.flatMap((r) => r.ingredients);
+//
+//   const unique = Array.from(new Set(all.map(ingredient => ingredient.name)));
+//
+//   return [
+//     ...selected.filter(ing => unique.includes(ing)),
+//     ...unique.filter(ing => !selected.includes(ing)),
+//   ].sort((a, b) => {
+//     if (!selected.includes(a) && !selected.includes(b)) {
+//       return a.localeCompare(b);
+//     }
+//     return 0;
+//   });
+// }, [allRecipes, selected]);
