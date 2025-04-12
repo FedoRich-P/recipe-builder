@@ -1,0 +1,1295 @@
+[
+    {
+      "id": "d3f4b5a0-1b7c-4a3d-9e6f-2c8d5e9a1b3f",
+      "name": "Паста Карбонара",
+      "category": "Итальянская кухня",
+      "ingredients": [
+        {
+          "name": "Спагетти",
+          "amount": "300г"
+        },
+        {
+          "name": "Бекон",
+          "amount": "150г"
+        },
+        {
+          "name": "Яйца",
+          "amount": "3шт"
+        },
+        {
+          "name": "Пармезан",
+          "amount": "50г"
+        },
+        {
+          "name": "Чеснок",
+          "amount": "2 зубчика"
+        }
+      ],
+      "steps": [
+        "Варить пасту 8 минут",
+        "Обжарить бекон",
+        "Смешать с соусом"
+      ],
+      "favorite": false,
+      "calories": 450,
+      "cookingTime": 20,
+      "imageUrl": "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=600"
+    },
+    {
+      "id": "a1b2c3d4-e5f6-4a3b-9c8d-7e6f5a4b3c2d",
+      "name": "Омлет с сыром",
+      "category": "Завтраки",
+      "ingredients": [
+        {
+          "name": "Яйца",
+          "amount": "4шт"
+        },
+        {
+          "name": "Молоко",
+          "amount": "50мл"
+        },
+        {
+          "name": "Сыр",
+          "amount": "100г"
+        },
+        {
+          "name": "Соль",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Перец",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Взбить яйца",
+        "Добавить молоко",
+        "Жарить на среднем огне"
+      ],
+      "favorite": true,
+      "calories": 320,
+      "cookingTime": 10,
+      "imageUrl": "https://images.unsplash.com/photo-1551782450-17144efb9c50?w=600"
+    },
+    {
+      "id": "9f3de431-c971-478a-b6db-85a20111d349",
+      "name": "Греческий салат",
+      "category": "Салаты",
+      "ingredients": [
+        {
+          "name": "Огурцы",
+          "amount": "2шт"
+        },
+        {
+          "name": "Помидоры",
+          "amount": "3шт"
+        },
+        {
+          "name": "Фета",
+          "amount": "150г"
+        },
+        {
+          "name": "Оливки",
+          "amount": "50г"
+        },
+        {
+          "name": "Лук красный",
+          "amount": "1шт"
+        }
+      ],
+      "steps": [
+        "Нарезать кубиками",
+        "Смешать ингредиенты",
+        "Заправить оливковым маслом"
+      ],
+      "favorite": true,
+      "calories": 280,
+      "cookingTime": 15,
+      "imageUrl": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=600"
+    },
+    {
+      "id": "cf9a91d1-0f2b-4f5f-9e24-8b909d8b6f27",
+      "name": "Курица терияки",
+      "category": "Азиатская кухня",
+      "ingredients": [
+        {
+          "name": "Куриное филе",
+          "amount": "500г"
+        },
+        {
+          "name": "Соус терияки",
+          "amount": "100мл"
+        },
+        {
+          "name": "Чеснок",
+          "amount": "3 зубчика"
+        },
+        {
+          "name": "Имбирь",
+          "amount": "20г"
+        }
+      ],
+      "steps": [
+        "Мариновать курицу 30 мин",
+        "Обжарить до готовности",
+        "Полить соусом"
+      ],
+      "favorite": false,
+      "calories": 380,
+      "cookingTime": 40,
+      "imageUrl": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600"
+    },
+    {
+      "id": "f7a3b7a2-664d-4f62-8a77-1f68d05c8e2a",
+      "name": "Тыквенный суп-пюре",
+      "category": "Супы",
+      "ingredients": [
+        {
+          "name": "Тыква",
+          "amount": "500г"
+        },
+        {
+          "name": "Морковь",
+          "amount": "1шт"
+        },
+        {
+          "name": "Сливки",
+          "amount": "200мл"
+        },
+        {
+          "name": "Лук",
+          "amount": "1шт"
+        },
+        {
+          "name": "Чеснок",
+          "amount": "2 зубчика"
+        }
+      ],
+      "steps": [
+        "Запечь овощи",
+        "Взбить блендером",
+        "Добавить сливки"
+      ],
+      "favorite": false,
+      "calories": 210,
+      "cookingTime": 35,
+      "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600"
+    },
+    {
+      "id": "762bce56-21f9-4f18-a74c-9fa3f4aaad01",
+      "name": "Рататуй",
+      "category": "Французская кухня",
+      "ingredients": [
+        {
+          "name": "Баклажаны",
+          "amount": "2шт"
+        },
+        {
+          "name": "Кабачки",
+          "amount": "2шт"
+        },
+        {
+          "name": "Помидоры",
+          "amount": "4шт"
+        },
+        {
+          "name": "Перец",
+          "amount": "2шт"
+        }
+      ],
+      "steps": [
+        "Нарезать овощи",
+        "Выложить слоями",
+        "Запекать 40 мин"
+      ],
+      "favorite": false,
+      "calories": 180,
+      "cookingTime": 60,
+      "imageUrl": "https://images.unsplash.com/photo-1630911422741-9290d439044a?w=600"
+    },
+    {
+      "id": "b9f2c55a-e4c7-4e07-9d5a-01a8f5e2754f",
+      "name": "Шоколадный мусс",
+      "category": "Десерты",
+      "ingredients": [
+        {
+          "name": "Шоколад",
+          "amount": "200г"
+        },
+        {
+          "name": "Яйца",
+          "amount": "4шт"
+        },
+        {
+          "name": "Сахар",
+          "amount": "100г"
+        },
+        {
+          "name": "Сливки",
+          "amount": "200мл"
+        }
+      ],
+      "steps": [
+        "Растопить шоколад",
+        "Взбить яйца",
+        "Смешать ингредиенты"
+      ],
+      "favorite": true,
+      "calories": 420,
+      "cookingTime": 30,
+      "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600"
+    },
+    {
+      "id": "4a847352-583c-4e8a-9a3e-045f312cbb15",
+      "name": "Лазанья",
+      "category": "Итальянская кухня",
+      "ingredients": [
+        {
+          "name": "Листы лазаньи",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Фарш",
+          "amount": "500г"
+        },
+        {
+          "name": "Томатный соус",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Сыр",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Бешамель",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Слоить ингредиенты",
+        "Запекать в духовке"
+      ],
+      "favorite": true,
+      "calories": 350,
+      "cookingTime": 45,
+      "imageUrl": "https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600"
+    },
+    {
+      "id": "1d2c349a-8f6b-4a2b-9d8a-51234cdfe678",
+      "name": "Сырники",
+      "category": "Десерты",
+      "ingredients": [
+        {
+          "name": "Творог",
+          "amount": "500г"
+        },
+        {
+          "name": "Яйца",
+          "amount": "2шт"
+        },
+        {
+          "name": "Мука",
+          "amount": "100г"
+        },
+        {
+          "name": "Сахар",
+          "amount": "50г"
+        }
+      ],
+      "steps": [
+        "Смешать ингредиенты",
+        "Обжарить на сковороде"
+      ],
+      "favorite": true,
+      "calories": 280,
+      "cookingTime": 25,
+      "imageUrl": "https://images.unsplash.com/photo-1563289141-9d43f0d9c065?w=600"
+    },
+    {
+      "id": "6e8a51fc-7b82-4e5d-838e-e6f0c3d5b249",
+      "name": "Борщ",
+      "category": "Супы",
+      "ingredients": [
+        {
+          "name": "Свекла",
+          "amount": "2шт"
+        },
+        {
+          "name": "Картофель",
+          "amount": "3шт"
+        },
+        {
+          "name": "Капуста",
+          "amount": "200г"
+        },
+        {
+          "name": "Мясо",
+          "amount": "300г"
+        }
+      ],
+      "steps": [
+        "Варить бульон",
+        "Добавить овощи",
+        "Подавать со сметаной"
+      ],
+      "favorite": true,
+      "calories": 250,
+      "cookingTime": 90,
+      "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600"
+    },
+    {
+      "id": "c2d7b5c0-12f6-49d3-8e1c-a93bf729c4a8",
+      "name": "Панкейки",
+      "category": "Завтраки",
+      "ingredients": [
+        {
+          "name": "Мука",
+          "amount": "200г"
+        },
+        {
+          "name": "Яйца",
+          "amount": "2шт"
+        },
+        {
+          "name": "Молоко",
+          "amount": "300мл"
+        },
+        {
+          "name": "Сахар",
+          "amount": "30г"
+        }
+      ],
+      "steps": [
+        "Смешать ингредиенты",
+        "Жарить на сковороде"
+      ],
+      "favorite": false,
+      "calories": 230,
+      "cookingTime": 20,
+      "imageUrl": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600"
+    },
+    {
+      "id": "d5f3c1a7-8f0e-4c3d-b91e-2d4f7a012345",
+      "name": "Цезарь",
+      "category": "Салаты",
+      "ingredients": [
+        {
+          "name": "Курица",
+          "amount": "300г"
+        },
+        {
+          "name": "Салат айсберг",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Сухарики",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Пармезан",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Соус",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить курицу",
+        "Смешать ингредиенты",
+        "Заправить соусом"
+      ],
+      "favorite": true,
+      "calories": 320,
+      "cookingTime": 25,
+      "imageUrl": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=600"
+    },
+    {
+      "id": "abcdef01-2345-6789-abcd-ef0133456789",
+      "name": "Пицца Маргарита",
+      "category": "Итальянская кухня",
+      "ingredients": [
+        {
+          "name": "Тесто",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Томатный соус",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Моцарелла",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Базилик",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Раскатать тесто",
+        "Добавить начинку",
+        "Запекать 15 мин"
+      ],
+      "favorite": false,
+      "calories": 380,
+      "cookingTime": 30,
+      "imageUrl": "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=600"
+    },
+    {
+      "id": "fedcba98-7654-3210-fedc-ba9076543210",
+      "name": "Фалафель",
+      "category": "Ближневосточная кухня",
+      "ingredients": [
+        {
+          "name": "Нут",
+          "amount": "200г"
+        },
+        {
+          "name": "Лук",
+          "amount": "1шт"
+        },
+        {
+          "name": "Чеснок",
+          "amount": "3 зубчика"
+        },
+        {
+          "name": "Кинза",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Измельчить нут",
+        "Сформировать шарики",
+        "Обжарить"
+      ],
+      "favorite": false,
+      "calories": 260,
+      "cookingTime": 40,
+      "imageUrl": "https://images.unsplash.com/photo-1598048536243-934d98753a3e?w=600"
+    },
+    {
+      "id": "9abc8def-0123-4567-89ab-cdef01234567",
+      "name": "Фондю",
+      "category": "Десерты",
+      "ingredients": [
+        {
+          "name": "Сыр",
+          "amount": "400г"
+        },
+        {
+          "name": "Белое вино",
+          "amount": "100мл"
+        },
+        {
+          "name": "Чеснок",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Хлеб",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Растопить сыр с вином",
+        "Подавать с хлебом"
+      ],
+      "favorite": true,
+      "calories": 450,
+      "cookingTime": 20,
+      "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600"
+    },
+    {
+      "id": "8f7e6d5c-4b3a-2910-9e8d-7c6b5a432109",
+      "name": "Гуакамоле",
+      "category": "Латиноамериканская кухня",
+      "ingredients": [
+        {
+          "name": "Авокадо",
+          "amount": "2шт"
+        },
+        {
+          "name": "Лимонный сок",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Помидоры",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Лук",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Размять авокадо",
+        "Смешать с овощами"
+      ],
+      "favorite": false,
+      "calories": 190,
+      "cookingTime": 10,
+      "imageUrl": "https://images.unsplash.com/photo-1631050230770-889a8c9a5f5a?w=600"
+    },
+    {
+      "id": "e7f6d5c4-b3a2-1980-7c6d-5e4f3a2b1c0d",
+      "name": "Чили кон карне",
+      "category": "Мексиканская кухня",
+      "ingredients": [
+        {
+          "name": "Фарш",
+          "amount": "400г"
+        },
+        {
+          "name": "Фасоль",
+          "amount": "200г"
+        },
+        {
+          "name": "Помидоры",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Перец чили",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить фарш",
+        "Добавить овощи",
+        "Тушить 30 мин"
+      ],
+      "favorite": false,
+      "calories": 310,
+      "cookingTime": 50,
+      "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600"
+    },
+    {
+      "id": "f1e2d3c4-b5a6-7890-cdef-123456789abc",
+      "name": "Тирамису",
+      "category": "Десерты",
+      "ingredients": [
+        {
+          "name": "Печенье савоярди",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Сыр маскарпоне",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Кофе",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Какао",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Приготовить крем",
+        "Собрать слоями",
+        "Посыпать какао"
+      ],
+      "favorite": true,
+      "calories": 400,
+      "cookingTime": 60,
+      "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600"
+    },
+    {
+      "id": "d0c9b8a7-6543-210f-edcb-9876543210fe",
+      "name": "Плов",
+      "category": "Среднеазиатская кухня",
+      "ingredients": [
+        {
+          "name": "Рис",
+          "amount": "300г"
+        },
+        {
+          "name": "Мясо",
+          "amount": "400г"
+        },
+        {
+          "name": "Морковь",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Лук",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить мясо",
+        "Добавить овощи",
+        "Тушить с рисом"
+      ],
+      "favorite": false,
+      "calories": 350,
+      "cookingTime": 70,
+      "imageUrl": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600"
+    },
+    {
+      "id": "a7b8c9d0-1234-5678-9abc-def012345678",
+      "name": "Блины",
+      "category": "Завтраки",
+      "ingredients": [
+        {
+          "name": "Мука",
+          "amount": "200г"
+        },
+        {
+          "name": "Яйца",
+          "amount": "3шт"
+        },
+        {
+          "name": "Молоко",
+          "amount": "500мл"
+        }
+      ],
+      "steps": [
+        "Смешать тесто",
+        "Жарить на сковороде"
+      ],
+      "favorite": true,
+      "calories": 220,
+      "cookingTime": 30,
+      "imageUrl": "https://images.unsplash.com/photo-1506084868230-bb9d95f24708?w=600"
+    },
+    {
+      "id": "01234567-89ab-cdef-0123-456789abcdef",
+      "name": "Креветки в чесночном соусе",
+      "category": "Морепродукты",
+      "ingredients": [
+        {
+          "name": "Креветки",
+          "amount": "500г"
+        },
+        {
+          "name": "Чеснок",
+          "amount": "5 зубчика"
+        },
+        {
+          "name": "Лимон",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Петрушка",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить креветки",
+        "Добавить чеснок",
+        "Полить лимонным соком"
+      ],
+      "favorite": false,
+      "calories": 280,
+      "cookingTime": 15,
+      "imageUrl": "https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600"
+    },
+    {
+      "id": "89abcdef-0123-4567-89ab-cdef01234567",
+      "name": "Стейк из лосося",
+      "category": "Морепродукты",
+      "ingredients": [
+        {
+          "name": "Лосось",
+          "amount": "400г"
+        },
+        {
+          "name": "Лимон",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Укроп",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Оливковое масло",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить стейк",
+        "Подавать с лимоном"
+      ],
+      "favorite": true,
+      "calories": 350,
+      "cookingTime": 20,
+      "imageUrl": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600"
+    },
+    {
+      "id": "abcdef01-2345-6789-abcd-ef0123456789",
+      "name": "Ризотто с грибами",
+      "category": "Итальянская кухня",
+      "ingredients": [
+        {
+          "name": "Рис",
+          "amount": "300г"
+        },
+        {
+          "name": "Грибы",
+          "amount": "200г"
+        },
+        {
+          "name": "Бульон",
+          "amount": "1л"
+        },
+        {
+          "name": "Лук",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить грибы",
+        "Добавить рис",
+        "Постепенно вливать бульон"
+      ],
+      "favorite": false,
+      "calories": 320,
+      "cookingTime": 40,
+      "imageUrl": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600"
+    },
+    {
+      "id": "fedcba98-7654-3210-fedc-ba9876543210",
+      "name": "Французский луковый суп",
+      "category": "Супы",
+      "ingredients": [
+        {
+          "name": "Лук",
+          "amount": "500г"
+        },
+        {
+          "name": "Бульон",
+          "amount": "1л"
+        },
+        {
+          "name": "Сыр",
+          "amount": "200г"
+        },
+        {
+          "name": "Хлеб",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Карамелизировать лук",
+        "Залить бульоном",
+        "Запечь с сыром"
+      ],
+      "favorite": true,
+      "calories": 290,
+      "cookingTime": 60,
+      "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554?w=600"
+    },
+    {
+      "id": "13579bdf-2468-ace0-1357-9bdf2468ace0",
+      "name": "Мусака",
+      "category": "Балканская кухня",
+      "ingredients": [
+        {
+          "name": "Баклажаны",
+          "amount": "2шт"
+        },
+        {
+          "name": "Фарш",
+          "amount": "400г"
+        },
+        {
+          "name": "Картофель",
+          "amount": "3шт"
+        },
+        {
+          "name": "Соус бешамель",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить овощи",
+        "Слоить с фаршем",
+        "Запекать 40 мин"
+      ],
+      "favorite": false,
+      "calories": 380,
+      "cookingTime": 80,
+      "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600"
+    },
+    {
+      "id": "02468ace-1357-bdf9-0246-8ace1357bdf9",
+      "name": "Кимчи",
+      "category": "Корейская кухня",
+      "ingredients": [
+        {
+          "name": "Пекинская капуста",
+          "amount": "1кг"
+        },
+        {
+          "name": "Редька",
+          "amount": "1шт"
+        },
+        {
+          "name": "Чеснок",
+          "amount": "10 зубчика"
+        },
+        {
+          "name": "Перец чили",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Засолить капусту",
+        "Добавить специи",
+        "Ферментировать 3 дня"
+      ],
+      "favorite": false,
+      "calories": 50,
+      "cookingTime": 4320,
+      "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600"
+    },
+    {
+      "id": "9b8a7c6d-5e4f-3210-1a2b-3c4d5e6f7a8b",
+      "name": "Пад Тай",
+      "category": "Тайская кухня",
+      "ingredients": [
+        {
+          "name": "Рисовая лапша",
+          "amount": "200г"
+        },
+        {
+          "name": "Креветки",
+          "amount": "200г"
+        },
+        {
+          "name": "Яйца",
+          "amount": "2шт"
+        },
+        {
+          "name": "Ростки бобов",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить креветки",
+        "Добавить лапшу",
+        "Залить яйцом"
+      ],
+      "favorite": true,
+      "calories": 340,
+      "cookingTime": 25,
+      "imageUrl": "https://images.unsplash.com/photo-1559847844-5315695dadae?w=600"
+    },
+    {
+      "id": "7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+      "name": "Бефстроганов",
+      "category": "Русская кухня",
+      "ingredients": [
+        {
+          "name": "Говядина",
+          "amount": "500г"
+        },
+        {
+          "name": "Грибы",
+          "amount": "200г"
+        },
+        {
+          "name": "Сливки",
+          "amount": "200мл"
+        },
+        {
+          "name": "Лук",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить мясо",
+        "Добавить грибы",
+        "Тушить со сливками"
+      ],
+      "favorite": true,
+      "calories": 420,
+      "cookingTime": 50,
+      "imageUrl": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600"
+    },
+    {
+      "id": "6c5d4e3f-2a1b-0c9d-8e7f-6a5b4c3d2e1f",
+      "name": "Чахохбили",
+      "category": "Грузинская кухня",
+      "ingredients": [
+        {
+          "name": "Курица",
+          "amount": "1кг"
+        },
+        {
+          "name": "Помидоры",
+          "amount": "500г"
+        },
+        {
+          "name": "Лук",
+          "amount": "3шт"
+        },
+        {
+          "name": "Кинза",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить курицу",
+        "Добавить овощи",
+        "Тушить 40 мин"
+      ],
+      "favorite": false,
+      "calories": 360,
+      "cookingTime": 70,
+      "imageUrl": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600"
+    },
+    {
+      "id": "5e4d3c2b-1a0f-9876-5432-10abcdef1234",
+      "name": "Долма",
+      "category": "Ближневосточная кухня",
+      "ingredients": [
+        {
+          "name": "Виноградные листья",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Фарш",
+          "amount": "500г"
+        },
+        {
+          "name": "Рис",
+          "amount": "100г"
+        },
+        {
+          "name": "Зелень",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Приготовить начинку",
+        "Завернуть в листья",
+        "Тушить 1 час"
+      ],
+      "favorite": true,
+      "calories": 280,
+      "cookingTime": 90,
+      "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600"
+    },
+    {
+      "id": "4f3e2d1c-0b9a-8765-4321-fedcba098765",
+      "name": "Утка по-пекински",
+      "category": "Китайская кухня",
+      "ingredients": [
+        {
+          "name": "Утка",
+          "amount": "1.5кг"
+        },
+        {
+          "name": "Мед",
+          "amount": "50г"
+        },
+        {
+          "name": "Соевый соус",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Имбирь",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Мариновать утку",
+        "Запекать 2 часа",
+        "Подавать с блинами"
+      ],
+      "favorite": false,
+      "calories": 500,
+      "cookingTime": 150,
+      "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600"
+    },
+    {
+      "id": "3e2d1c0b-9a8b-7654-3210-abcdef123456",
+      "name": "Фо Бо",
+      "category": "Вьетнамская кухня",
+      "ingredients": [
+        {
+          "name": "Говядина",
+          "amount": "300г"
+        },
+        {
+          "name": "Рисовая лапша",
+          "amount": "200г"
+        },
+        {
+          "name": "Бульон",
+          "amount": "1л"
+        },
+        {
+          "name": "Кориандр",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Варить бульон 4 часа",
+        "Добавить лапшу",
+        "Подавать с зеленью"
+      ],
+      "favorite": true,
+      "calories": 380,
+      "cookingTime": 300,
+      "imageUrl": "https://images.unsplash.com/photo-1559847844-5315695dadae?w=600"
+    },
+    {
+      "id": "2d1c0b9a-8b7c-6543-210f-edcba9876543",
+      "name": "Такос",
+      "category": "Мексиканская кухня",
+      "ingredients": [
+        {
+          "name": "Тортильи",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Фарш",
+          "amount": "400г"
+        },
+        {
+          "name": "Салат",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Сыр",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Сальса",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить фарш",
+        "Собрать такос",
+        "Подавать с сальсой"
+      ],
+      "favorite": false,
+      "calories": 320,
+      "cookingTime": 25,
+      "imageUrl": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=600"
+    },
+    {
+      "id": "1c0b9a8b-7c6d-5432-10fe-dcba98765432",
+      "name": "Паэлья",
+      "category": "Испанская кухня",
+      "ingredients": [
+        {
+          "name": "Рис",
+          "amount": "300г"
+        },
+        {
+          "name": "Морепродукты",
+          "amount": "500г"
+        },
+        {
+          "name": "Бульон",
+          "amount": "1л"
+        },
+        {
+          "name": "Шафран",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить морепродукты",
+        "Добавить рис",
+        "Тушить с бульоном"
+      ],
+      "favorite": true,
+      "calories": 350,
+      "cookingTime": 45,
+      "imageUrl": "https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600"
+    },
+    {
+      "id": "0b9a8b7c-6d5e-4321-0fed-cba987654321",
+      "name": "Жаркое",
+      "category": "Русская кухня",
+      "ingredients": [
+        {
+          "name": "Свинина",
+          "amount": "500г"
+        },
+        {
+          "name": "Картофель",
+          "amount": "1кг"
+        },
+        {
+          "name": "Лук",
+          "amount": "3шт"
+        },
+        {
+          "name": "Морковь",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить мясо",
+        "Добавить овощи",
+        "Тушить 1 час"
+      ],
+      "favorite": false,
+      "calories": 400,
+      "cookingTime": 90,
+      "imageUrl": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600"
+    },
+    {
+      "id": "9a8b7c6d-5e4f-3210-1fed-cba987654321",
+      "name": "Хачапури",
+      "category": "Грузинская кухня",
+      "ingredients": [
+        {
+          "name": "Тесто",
+          "amount": "500г"
+        },
+        {
+          "name": "Сыр",
+          "amount": "600г"
+        },
+        {
+          "name": "Яйца",
+          "amount": "2шт"
+        },
+        {
+          "name": "Масло",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Приготовить начинку",
+        "Сформировать хачапури",
+        "Выпекать 30 мин"
+      ],
+      "favorite": true,
+      "calories": 450,
+      "cookingTime": 60,
+      "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600"
+    },
+    {
+      "id": "8b7c6d5e-4f3a-2101-9e8d-cba987654321",
+      "name": "Гуляш",
+      "category": "Венгерская кухня",
+      "ingredients": [
+        {
+          "name": "Говядина",
+          "amount": "700г"
+        },
+        {
+          "name": "Лук",
+          "amount": "3шт"
+        },
+        {
+          "name": "Паприка",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Томатная паста",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Обжарить мясо",
+        "Добавить овощи",
+        "Тушить 2 часа"
+      ],
+      "favorite": false,
+      "calories": 380,
+      "cookingTime": 150,
+      "imageUrl": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600"
+    },
+    {
+      "id": "7c6d5e4f-3a2b-1098-7fed-cba987654321",
+      "name": "Манты",
+      "category": "Центральноазиатская кухня",
+      "ingredients": [
+        {
+          "name": "Тесто",
+          "amount": "500г"
+        },
+        {
+          "name": "Фарш",
+          "amount": "700г"
+        },
+        {
+          "name": "Лук",
+          "amount": "3шт"
+        },
+        {
+          "name": "Перец",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Приготовить начинку",
+        "Слепить манты",
+        "Готовить на пару"
+      ],
+      "favorite": true,
+      "calories": 300,
+      "cookingTime": 60,
+      "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600"
+    },
+    {
+      "id": "6d5e4f3a-2b1c-0987-6fed-cba987654321",
+      "name": "Цыпленок табака",
+      "category": "Грузинская кухня",
+      "ingredients": [
+        {
+          "name": "Цыпленок",
+          "amount": "1кг"
+        },
+        {
+          "name": "Чеснок",
+          "amount": "5 зубчика"
+        },
+        {
+          "name": "Масло",
+          "amount": "по вкусу"
+        },
+        {
+          "name": "Приправа",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Распластать цыпленка",
+        "Мариновать",
+        "Жарить под прессом"
+      ],
+      "favorite": false,
+      "calories": 420,
+      "cookingTime": 50,
+      "imageUrl": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=600"
+    },
+    {
+      "id": "5e4f3a2b-1c0d-9876-5fed-cba987654321",
+      "name": "Чурчхела",
+      "category": "Грузинская кухня",
+      "ingredients": [
+        {
+          "name": "Орехи",
+          "amount": "500г"
+        },
+        {
+          "name": "Виноградный сок",
+          "amount": "1л"
+        },
+        {
+          "name": "Мука",
+          "amount": "по вкусу"
+        }
+      ],
+      "steps": [
+        "Нанизать орехи",
+        "Приготовить сироп",
+        "Обмакивать нити"
+      ],
+      "favorite": true,
+      "calories": 480,
+      "cookingTime": 1440,
+      "imageUrl": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600"
+    }
+  ]

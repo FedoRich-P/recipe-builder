@@ -2,18 +2,14 @@ import { useState } from 'react';
 import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { SearchInput } from '@/shared/ui/inputs/SearchInput';
 import { RecipeForm } from '@/shared/ui/forms/RecipeForm/RecipeForm';
-import { useAppDispatch } from '@app/hooks';
-import { setSearchTerm } from '@/features/recipe/model/recipeSlice';
+import { useAppDispatch, useAppSelector } from '@app/hooks';
+import { selectSearch, setSearchTerm } from '@/features/recipe/model/recipeSlice';
 import { IngredientFilter } from '@/features/ingredients-filter/ui/IngredientFilter';
+import { SortControls } from '@/features/recipe/ui/SortControls';
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const dispatch = useAppDispatch();
-
-  const handleSearch = (value: string) => {
-    dispatch(setSearchTerm(value));
-  };
 
   const handleSubmit = () => {
   //   // const newRecipe = {
@@ -35,9 +31,8 @@ export const Sidebar = () => {
                   className="self-end lg:hidden p-2 mb-2 rounded-lg hover:bg-gray-100 transition-colors">
             <XMarkIcon className="w-5 h-5 text-gray-500" />
           </button>
-
           <h2 className="text-xl font-bold text-gray-800 mb-4">Управление рецептами</h2>
-          <SearchInput onSearch={handleSearch} className="mb-4" />
+          <SortControls className={'flex flex-wrap gap-2 justify-start lg:flex-nowrap lg:gap-4 md:mb-3 '} />
           {!showForm ? (
             <button
               onClick={() => setShowForm(true)}

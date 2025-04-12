@@ -7,3 +7,32 @@
 body {
     font-family: 'Nunito', sans-serif;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Ширина скроллбара */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Цвет фона трека */
+    border-radius: 10px; /* Скругление углов трека */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #fdba74; /* Цвет ползунка (оранжевый Tailwind orange-300) */
+    border-radius: 10px; /* Скругление углов ползунка */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #f97316; /* Цвет ползунка при наведении (оранжевый Tailwind orange-600) */
+}
+
+/* Стилизация для Firefox */
+.custom-scrollbar {
+    scrollbar-width: thin; /* Делаем скроллбар тонким */
+    scrollbar-color: #fdba74 #f1f1f1; /* Цвет ползунка и трека */
+}
+
+/* Опционально: Убрать стрелки в IE/Edge (старых) */
+.custom-scrollbar {
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* Скрывать, когда не используется */
+}
