@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { IngredientsList } from '@/features/ingredients-filter/ui/IngredientsList';
 import { FavoriteDeleteButtons } from '@/shared/ui/buttons/FavoriteDeleteButtons';
 import { capitalizeWords } from '@/shared/lib/utils/capitalizeWords';
+import { useDeleteRecipeMutation, useToggleFavoriteMutation } from '@/features/recipe/model/recipesApi';
 
 type RecipeItemProps = {
   recipe: Recipe | undefined;
@@ -13,16 +14,18 @@ type RecipeItemProps = {
 };
 
 export const RecipeItem = ({ recipe, isFavorite, className, isMainPage = false }: RecipeItemProps) => {
-  // const dispatch = useAppDispatch();
+  const [toggleFavorite] = useToggleFavoriteMutation()
+  const [deleteRecipe] = useDeleteRecipeMutation()
 
   if (!recipe) return <h2>Нет такого рецепта...</h2>;
 
   const handleToggleFavorite = () => {
-    // dispatch(toggleFavorite(recipe.id));
+    toggleFavorite({ id: recipe.id, currentFavoriteStatus: isFavorite });
   };
 
+
   const handleDeleteRecipe = () => {
-    // dispatch(deleteRecipe(recipe.id));
+    deleteRecipe(recipe.id)
   };
 
   return (
@@ -69,7 +72,7 @@ export const RecipeItem = ({ recipe, isFavorite, className, isMainPage = false }
       <div className=" px-4 flex flex-col flex-grow">
         <div className="flex-grow">
           <ul>
-            {recipe.steps.map((step, i) => (
+            {Array.isArray(recipe.steps) && recipe?.steps.map((step, i) => (
               <li key={i} className={' text-gray-700 text-sm rounded-full truncate mb-2'}>{i + 1}. {step}</li>
             ))}
           </ul>

@@ -1,25 +1,26 @@
+import React from 'react';
 import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/solid';
-import { SortOption } from '@/features/recipe/model/types/recipe';
-import { ReactNode } from 'react';
 
 interface SortButtonProps {
   active: boolean;
   sortKey: string;
-  currentSort: SortOption;
+  currentSort: string;
   onClick: () => void;
-  children: ReactNode;
+  children: React.ReactNode;
+  className?: string;
 }
 
-export const SortButton = ({
-                             active,
-                             sortKey,
-                             currentSort,
-                             onClick,
-                             children,
-                           }: SortButtonProps) => {
+export const SortButton = (props: SortButtonProps) => {
+  const {
+    active,
+    currentSort,
+    onClick,
+    children,
+    className,
+  } = props;
   const getSortIcon = () => {
     if (!active) return null;
-    return currentSort === `${sortKey}-asc` ? (
+    return currentSort.endsWith('asc') ? (
       <ArrowUpIcon className="w-4 h-4" />
     ) : (
       <ArrowDownIcon className="w-4 h-4" />
@@ -28,10 +29,10 @@ export const SortButton = ({
 
   return (
     <button onClick={onClick}
-            className={`w-full flex items-center justify-center px-5 py-3 rounded-full text-sm ${
+            className={`flex items-center justify-center px-4 py-2 rounded-full text-sm transition-colors ${
               active ? 'bg-orange-100 text-orange-700' : 'bg-gray-100 text-gray-700'
-            }`}>
-      <span className="mr-2 whitespace-nowrap">{children}</span>
+            } ${className}`}>
+      <span className="mr-2 whitespace-nowrap text-base">{children}</span>
       {getSortIcon()}
     </button>
   );

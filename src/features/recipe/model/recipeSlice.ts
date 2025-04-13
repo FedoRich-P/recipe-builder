@@ -2,13 +2,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { SearchType, SortOption } from '@/features/recipe/model/types/recipe';
 
+
 export type RecipeSortState = {
   sortType: SortOption | '';
   sortDirection: 'asc' | 'desc' | '';
 };
 
 export type RecipeState = {
-  sort: RecipeSortState;
+  sort: SortOption;
   search: string;
   searchType: SearchType;
   selectedIngredients: string[];
@@ -37,7 +38,7 @@ export const recipeSlice = createSlice({
     setSelectedIngredients: (state, action: PayloadAction<string[]>) => {
       state.selectedIngredients = action.payload;
     },
-    setSort: (state, action: PayloadAction<RecipeSortState>) => {
+    setSort: (state, action: PayloadAction<SortOption>) => {
       state.sort = action.payload;
     },
   },

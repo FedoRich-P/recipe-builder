@@ -10,32 +10,28 @@ export type Recipe = {
     category: string
 };
 
+export type RecipeFormData = {
+    name: string;
+    ingredients: Ingredient[];
+    stepsString: string;
+    cookingTime?: number | null | '';
+    calories?: number | null | '';
+    category: string;
+    image: FileList | null;
+};
+
 export type Ingredient = {
     name: string;
     amount: string;
 };
 
-export type SortOption =
-  | 'name'
-  | 'time'
-  | 'calories'
+export type SortOption = {
+    sortType: 'name' | 'cookingTime' | 'calories' | 'favorite' | '';
+    sortDirection: 'asc' | 'desc' | '';
+};
 
 export type SearchType = 'name' | 'ingredient' | 'category' | 'none';
 
 export type RecipesState = {
     recipes: Recipe[];
 };
-
-// export type SortOption =
-//   | 'name-asc'
-//   | 'name-desc'
-//   | 'ingredients-asc'
-//   | 'ingredients-desc';
-
-// export type Recipe = {
-//     id: string;
-//     name: string;
-//     ingredients: string[];
-//     steps: string[];
-//     favorite: boolean;
-// };
