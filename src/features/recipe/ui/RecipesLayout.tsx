@@ -129,8 +129,7 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
       // Убираем дубликаты по ID
       const uniqueRecipesMap = new Map<string, Recipe>();
       combined.forEach(recipe => uniqueRecipesMap.set(recipe.id, recipe));
-      const uniqueRecipes = Array.from(uniqueRecipesMap.values());
-      return uniqueRecipes;
+      return Array.from(uniqueRecipesMap.values());
     });
   }, [recipesFromCurrentFetch, currentPage, showAll, searchArgs, isFetchingMoreOrSearching, isSearchError, accumulatedRecipes.length]);
 

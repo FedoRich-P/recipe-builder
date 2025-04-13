@@ -1,6 +1,7 @@
 import { faCarrot, faFish, faEgg, faCheese, faBreadSlice, faDrumstickBite, faLeaf, faWineBottle, faAppleAlt, faPepperHot, faLemon, faCookie, faIceCream, faSeedling, faTint, faUtensilSpoon, faBacon, faMortarPestle, faGlassWater, faBottleWater } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-export const ingredientIcons: Record<string, any> = {
+export const ingredientIcons: Record<string, IconDefinition> = {
   'Авокадо': faAppleAlt,
   'Баклажаны': faCarrot,
   'Белое вино': faWineBottle,

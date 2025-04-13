@@ -8,7 +8,6 @@ import { FormInputGroup } from './FormInputGroup';
 import { PreparationStepsTextarea } from './PreparationStepsTextarea';
 import { RecipeToast } from './RecipeToast';
 import { Recipe, RecipeFormData } from '@/features/recipe/model/types/recipe';
-import { SelectCategory } from '@components/SelectCategory';
 import { ImageUpload } from '@components/ImageUpload';
 import { FormButtonGroup } from '@/shared/ui/forms/RecipeForm/FormBottonGroup';
 import { CustomSelect, Option } from '@components/CustomSelect';
@@ -34,7 +33,6 @@ export const RecipeForm = (props: RecipeFormProps) => {
   const [createRecipe, { isLoading }] = useCreateRecipeMutation();
   const [showToast, setShowToast] = useState(false);
   const [addedRecipeName, setAddedRecipeName] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>(''); // Состояние для выбранной категории
 
   const { data: recipes = [], isLoading: recipesLoading, error } = useGetRecipesQuery();
   const categories = [...new Set(recipes.map((r) => r.category).filter(Boolean))];
@@ -52,7 +50,7 @@ export const RecipeForm = (props: RecipeFormProps) => {
       stepsString: '',
       cookingTime: '',
       calories: '',
-      category: selectedCategory,
+      category: '',
       image: null,
     },
   });

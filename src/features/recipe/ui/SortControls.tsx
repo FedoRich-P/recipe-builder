@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/24/solid';
+import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/hooks';
 import { selectSort, setSort } from '@/features/recipe/model/recipeSlice';
 import { SortOption } from '@/features/recipe/model/types/recipe';
