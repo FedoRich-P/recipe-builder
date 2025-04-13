@@ -2,13 +2,13 @@ import { CheckCircleIcon } from '@heroicons/react/24/solid';
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type Props = {
+type RecipeToastProps = {
   recipeName: string
   onClose: () => void
   duration?: number
 }
 
-export const RecipeToast = ({ recipeName, onClose, duration = 3000 }: Props) => {
+export const RecipeToast = ({ recipeName, onClose, duration = 3000 }: RecipeToastProps) => {
   useEffect(() => {
     const timer = setTimeout(onClose, duration);
     return () => clearTimeout(timer);

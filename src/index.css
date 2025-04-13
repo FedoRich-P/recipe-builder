@@ -36,3 +36,20 @@ body {
 .custom-scrollbar {
     -ms-overflow-style: -ms-autohiding-scrollbar; /* Скрывать, когда не используется */
 }
+
+.sidebar {
+    top: 95px;
+}
+
+@media (max-width: 1028px) {
+    .sidebar {
+        top: 123px;
+        height: calc(100vh - 123px);
+    }
+}
+@media (max-width: 490px) {
+    .sidebar {
+        top: 200px;
+        height: calc(100vh - 200px);
+    }
+}

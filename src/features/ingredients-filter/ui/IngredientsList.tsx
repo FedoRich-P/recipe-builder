@@ -1,15 +1,17 @@
-import { useState, useRef } from 'react';
-import { IngredientsPopup } from '@/features/ingredients-filter/ui/IngredientsPopup';
+import { useState, useRef, memo } from 'react';
 import { Ingredient } from '@/features/recipe/model/types/recipe';
+import { IngredientsPopup } from '@/features/ingredients-filter/ui/IngredientsPopup';
 import { customCN } from '@/shared/lib/customCN';
 import { capitalizeWords } from '@/shared/lib/utils/capitalizeWords';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ingredientIcons } from '@/shared/lib/utils/ingredientIcons'; // Путь к иконкам
 
 type IngredientsListProps = {
   ingredients: Ingredient[];
   isMain?: boolean;
 };
 
-export const IngredientsList = ({ ingredients, isMain }: IngredientsListProps) => {
+const IngredientsListComponent = ({ ingredients, isMain = false }: IngredientsListProps) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const moreButtonRef = useRef<HTMLSpanElement>(null);
 
@@ -17,8 +19,8 @@ export const IngredientsList = ({ ingredients, isMain }: IngredientsListProps) =
 
   return (
     <section className={customCN(
-      "bg-white/80 backdrop-blur-md rounded-lg border border-white/20 mb-4",
-      isMain ? 'p-4 shadow-sm' : 'mb-4',
+      'bg-white/80 backdrop-blur-md rounded-lg border border-white/20 mb-4 p-4',
+      isMain && 'shadow-sm',
     )}>
       <h3 className={customCN(
         'text-lg font-semibold mb-3',
@@ -33,10 +35,14 @@ export const IngredientsList = ({ ingredients, isMain }: IngredientsListProps) =
             <li key={index}
                 className="flex justify-between items-center py-2.5 px-1 border-b border-gray-50 last:border-b-0 hover:bg-gray-50 transition-colors group">
               <span className="text-gray-700 font-medium truncate">
-                { capitalizeWords(ingredient.name)}
+                 {ingredientIcons[ingredient.name] && (
+                   <FontAwesomeIcon icon={ingredientIcons[ingredient.name]}
+                                    className="mr-5 text-xl text-gray-600" />
+                 )}
+                {capitalizeWords(ingredient.name)}
               </span>
               {ingredient.amount && (
-                <span className="text-rose-600 text-sm bg-rose-50 px-2 py-1 rounded-md ml-2">
+                <span className="text-rose-600 text-sm bg-rose-50 px-2 py-1 rounded-md ml-2 flex-shrink-0">
                   {ingredient.amount}
                 </span>
               )}
@@ -48,32 +54,34 @@ export const IngredientsList = ({ ingredients, isMain }: IngredientsListProps) =
           <ul className="flex flex-wrap gap-2">
             {ingredients.slice(0, 3).map((ingredient, index) => (
               <li key={index}
-                  className="px-3 py-1.5 bg-rose-50 text-rose-800 rounded-full
-                         text-sm font-medium hover:bg-rose-100 transition-colors
-                         flex items-center">
-                <span className="w-2 h-2 bg-rose-400 rounded-full mr-2" />
-                { capitalizeWords(ingredient.name)}
+                  className="px-3 py-1.5 bg-rose-50 text-rose-800 rounded-full text-sm font-medium hover:bg-rose-100 transition-colors flex items-center cursor-default">
+                {ingredientIcons[ingredient.name] && (
+                  <FontAwesomeIcon
+                    icon={ingredientIcons[ingredient.name]}
+                    className="mr-2 text-rose-600 text-sm"
+                  />
+                )}
+                <span>{capitalizeWords(ingredient.name)}</span>
               </li>
             ))}
-
             {ingredients.length > 3 && (
               <span ref={moreButtonRef}
                     onClick={togglePopup}
-                    className="px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full
-                         text-sm font-medium hover:bg-gray-200 transition-colors
-                         flex items-center">
+                    className="px-3 py-1.5 bg-gray-100 text-gray-600 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors cursor-pointer flex items-center">
                 Ещё {ingredients.length - 3}
               </span>
             )}
           </ul>
 
-          {isPopupOpen && (
-            <IngredientsPopup ingredients={ingredients}
-                              onClose={togglePopup}
-                              moreButtonRef={moreButtonRef} />
+          {isPopupOpen && (<IngredientsPopup
+              ingredients={ingredients}
+              onClose={togglePopup}
+              moreButtonRef={moreButtonRef} />
           )}
         </div>
       )}
     </section>
   );
 };
+
+export const IngredientsList = memo(IngredientsListComponent);
