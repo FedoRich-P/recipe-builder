@@ -1,5 +1,5 @@
 import { UseFormRegister } from 'react-hook-form';
-import { RecipeFormData } from '@/features/recipe/model/types/recipe';
+import { RecipeFormData } from '@/entities/recipe/model/types/recipe';
 
 export const FormInputGroup = ({ register }: { register: UseFormRegister<RecipeFormData> }) => (
   <div className="grid sm:grid-cols-2 gap-4 mb-4">

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/hooks';
-import { selectSort, setSort } from '@/features/recipe/model/recipeSlice';
-import { SortOption } from '@/features/recipe/model/types/recipe';
-import { CustomSelect, Option } from '@components/CustomSelect';
+import { selectSort, setSort } from '@/entities/recipe/model/recipeSlice';
+import { SortOption } from '@/entities/recipe/model/types/recipe';
+import { CustomSelect, Option } from '@/shared/ui/CustomSelect';
 import { SortButton } from '@/shared/ui/buttons/SortButton';
 
 type SortControlsProps = {

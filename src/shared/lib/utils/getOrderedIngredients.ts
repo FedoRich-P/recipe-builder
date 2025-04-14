@@ -1,4 +1,4 @@
-import { Recipe } from '@/features/recipe/model/types/recipe';
+import { Recipe } from '@/entities/recipe/model/types/recipe';
 
 export function getOrderedIngredients(recipes: Recipe[] | undefined, selected: string[]): string[] {
   if (!recipes?.length) return [];

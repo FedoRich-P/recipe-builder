@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { RecipeForm } from '@/shared/ui/forms/RecipeForm/RecipeForm';
 import { IngredientFilter } from '@/features/ingredients-filter/ui/IngredientFilter';
-import { SortControls } from '@/features/recipe/ui/SortControls';
+import { SortControls } from '@/entities/recipe/ui/SortControls';
 import { MobileMenuButton } from '@/shared/ui/buttons/MobileMenuButton';
 
 export const Sidebar = () => {

@@ -1,7 +1,7 @@
 import { useState, useRef, memo } from 'react';
-import { Ingredient } from '@/features/recipe/model/types/recipe';
+import { Ingredient } from '@/entities/recipe/model/types/recipe';
 import { IngredientsPopup } from '@/features/ingredients-filter/ui/IngredientsPopup';
-import { customCN } from '@/shared/lib/customCN';
+import { customCN } from '@/shared/lib/utils/customCN';
 import { capitalizeWords } from '@/shared/lib/utils/capitalizeWords';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ingredientIcons } from '@/shared/lib/utils/ingredientIcons'; // Путь к иконкам

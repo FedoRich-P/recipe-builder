@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import { SearchInput } from '@/shared/ui/inputs/SearchInput';
-import { selectSearch, selectSearchType, setSearchTerm, setSearchType } from '@/features/recipe/model/recipeSlice';
+import { selectSearch, selectSearchType, setSearchTerm, setSearchType } from '@/entities/recipe/model/recipeSlice';
 import { StatsCounter } from '@/shared/ui/StatsCounter';
 import { useAppDispatch, useAppSelector } from '@app/hooks';
-import { SearchType } from '@/features/recipe/model/types/recipe';
-import { useGetFavoritesRecipesQuery, useGetRecipesQuery } from '@/features/recipe/model/recipesApi';
+import { SearchType } from '@/entities/recipe/model/types/recipe';
+import { useGetFavoritesRecipesQuery, useGetRecipesQuery } from '@/shared/api/recipesApi';
 import { Navigation } from '@/widgets/navigation/Navigation';
-import { CustomSelect, Option } from '@components/CustomSelect';
+import { CustomSelect, Option } from '@/shared/ui/CustomSelect';
 
 const searchTypeOptions: Option<SearchType>[] = [
   { value: 'name', label: 'По названию' },
@@ -49,7 +49,7 @@ export const Header = () => {
 
   return (
     <header
-      className="sticky top-0 max-w-[1440px] mx-auto bg-white flex-wrap shadow py-4 px-6 flex items-center justify-around lg:justify-around relative z-1000">
+      className="sticky top-0 max-w-[1440px] mx-auto bg-white flex-wrap shadow py-4 px-6 flex items-center justify-around lg:justify-around z-1000">
       <div className="flex items-baseline gap-2 w-full lg:w-auto flex-wrap relative">
         <SearchInput onSearch={handleSearchUpdate}
                      initialValue={currentSearchTerm}

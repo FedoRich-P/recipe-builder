@@ -1,6 +1,6 @@
 // recipeSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SearchType, SortOption } from '@/features/recipe/model/types/recipe';
+import { SearchType, SortOption } from '@/entities/recipe/model/types/recipe';
 
 
 export type RecipeSortState = {

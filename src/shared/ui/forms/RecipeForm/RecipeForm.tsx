@@ -1,16 +1,16 @@
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useGetRecipesQuery, useCreateRecipeMutation } from '@/features/recipe/model/recipesApi';
+import { useGetRecipesQuery, useCreateRecipeMutation } from '@/shared/api/recipesApi';
 import { RecipeNameInput } from './RecipeNameInput';
 import { IngredientsInput } from './IngredientsInput';
 import { FormInputGroup } from './FormInputGroup';
 import { PreparationStepsTextarea } from './PreparationStepsTextarea';
 import { RecipeToast } from './RecipeToast';
-import { Recipe, RecipeFormData } from '@/features/recipe/model/types/recipe';
-import { ImageUpload } from '@components/ImageUpload';
+import { Recipe, RecipeFormData } from '@/entities/recipe/model/types/recipe';
+import { ImageUpload } from '@/shared/ui/ImageUpload';
 import { FormButtonGroup } from '@/shared/ui/forms/RecipeForm/FormBottonGroup';
-import { CustomSelect, Option } from '@components/CustomSelect';
+import { CustomSelect, Option } from '@/shared/ui/CustomSelect';
 
 type RecipeFormProps = {
   initialValues?: RecipeFormData;

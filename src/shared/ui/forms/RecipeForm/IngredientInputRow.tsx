@@ -2,7 +2,7 @@ import React from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useAutocompleteSuggestions } from '@/shared/lib/hooks/useAutocompleteSuggestions';
 import { UseFormRegister, FieldArrayWithId } from 'react-hook-form';
-import { RecipeFormData } from '@/features/recipe/model/types/recipe';
+import { RecipeFormData } from '@/entities/recipe/model/types/recipe';
 
 type IngredientInputRowProps = {
   index: number;

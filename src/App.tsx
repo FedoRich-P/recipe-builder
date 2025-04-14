@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Layout } from '@app/layout/Layout';
 import { RecipesPage } from '@/pages/RecipesPage';
 import { FavoritePage } from '@/pages/FavoritePage';
-import { NotFound } from '@/shared/ui/NotFound/NotFound';
+import { NotFound } from '@/pages/NotFound/NotFound';
 import { MainRecipePage } from '@/pages/MainRecipePage';
 
 function App() {

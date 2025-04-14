@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Recipe, SearchType } from '@/features/recipe/model/types/recipe';
+import { Recipe, SearchType } from '@/entities/recipe/model/types/recipe';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
 

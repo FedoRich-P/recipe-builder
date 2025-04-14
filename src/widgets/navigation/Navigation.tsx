@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { FaHeart, FaPizzaSlice } from 'react-icons/fa';
-import { customCN } from '@/shared/lib/customCN';
+import { customCN } from '@/shared/lib/utils/customCN';
 
 type NavigationProps = {
   className?: string;

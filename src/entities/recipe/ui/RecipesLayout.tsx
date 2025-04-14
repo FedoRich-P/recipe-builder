@@ -1,35 +1,29 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useAppSelector } from '@app/hooks';
-import { selectSearch, selectSearchType, selectSort } from '@/features/recipe/model/recipeSlice';
-import { Loader } from '@components/Loader';
-import { RecipesList } from '@/features/recipe/ui/RecipesList';
+import { selectSearch, selectSearchType, selectSort } from '@/entities/recipe/model/recipeSlice';
+import { Loader } from '@/shared/ui/Loader';
+import { RecipesList } from '@/entities/recipe/ui/RecipesList';
 import {
   useGetSomeRecipesQuery,
   useSearchRecipesQuery,
   useGetFavoritesRecipesQuery,
   useGetRecipesQuery,
-} from '@/features/recipe/model/recipesApi';
-import { Recipe } from '@/features/recipe/model/types/recipe';
-
-const ITEMS_PER_PAGE = 8;
+} from '@/shared/api/recipesApi';
+import { Recipe } from '@/entities/recipe/model/types/recipe';
+import { ITEMS_PER_PAGE } from '@app/consts';
 
 type RecipesLayoutProps = {
   favoriteOnly?: boolean;
 };
 
 export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
-  // --- Состояние компонента ---
   const [currentPage, setCurrentPage] = useState(1);
   const [accumulatedRecipes, setAccumulatedRecipes] = useState<Recipe[]>([]);
   const [showAll, setShowAll] = useState(false);
 
-  // --- Данные из Redux ---
   const searchTerm = useAppSelector(selectSearch).trim();
   const searchType = useAppSelector(selectSearchType);
 
-  // --- Запросы к API ---
-
-  // 1. Запросы для общего количества (для пагинации)
   const { data: allRecipesData, isLoading: isLoadingAll } = useGetRecipesQuery(undefined, {
     skip: favoriteOnly || !!searchTerm,
   });
@@ -37,7 +31,6 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
     skip: !favoriteOnly || !!searchTerm,
   });
 
-  // 2. Формирование аргументов для поиска
   const searchArgs = useMemo(() => {
     if (searchTerm) {
       const typeToUse = searchType || 'name';
@@ -46,7 +39,6 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
     return undefined;
   }, [searchTerm, searchType]);
 
-  // 3. Запрос Поиска
   const {
     data: searchResults,
     isLoading: searchLoading,
@@ -58,7 +50,6 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
 
   const sortState = useAppSelector(selectSort);
 
-  // Используем хук для запроса, передавая сортировку в качестве параметров:
   const { data: pagedData, isLoading: pagedLoading, isFetching: pagedFetching } =
     useGetSomeRecipesQuery({
       page: currentPage,
@@ -68,26 +59,20 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
       order: sortState.sortDirection,
     });
 
-  // --- Вычисляемые значения ---
-
-  // Определяем начальную загрузку
   const initialLoading = searchArgs
     ? searchLoading
     : favoriteOnly
       ? isLoadingFavs || pagedLoading
       : isLoadingAll || pagedLoading;
 
-  // Определяем фоновую загрузку
   const isFetchingMoreOrSearching = searchArgs ? searchFetching : pagedFetching;
 
-  // Вычисляем общее количество
   const totalCount = useMemo(() => {
     if (searchArgs) return isSearchError ? 0 : searchResults?.length ?? 0;
     if (favoriteOnly) return allFavoritesData?.length ?? 0;
     return allRecipesData?.length ?? 0;
-  }, [searchArgs, searchResults, isSearchError, favoriteOnly, allFavoritesData, allRecipesData]); // Добавили isSearchError
+  }, [searchArgs, searchResults, isSearchError, favoriteOnly, allFavoritesData, allRecipesData]);
 
-  // Определяем рецепты для текущего отображения/накопления
   const recipesFromCurrentFetch = useMemo(() => {
     if (searchArgs) {
       if (isSearchError) {
@@ -99,25 +84,20 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
     return pagedData?.recipes || [];
   }, [searchArgs, searchResults, isSearchError, pagedData]); // Добавили isSearchError
 
-  // --- Эффекты ---
-
-  // 1. Эффект сброса при смене режима
   useEffect(() => {
     setAccumulatedRecipes([]);
     setCurrentPage(1);
     setShowAll(false);
   }, [favoriteOnly, searchTerm]);
 
-  // 2. Эффект накопления/замены рецептов
   useEffect(() => {
     const shouldSkipAccumulation = recipesFromCurrentFetch.length === 0 || isFetchingMoreOrSearching || (searchArgs && isSearchError);
 
     if (shouldSkipAccumulation) {
       if (searchArgs && isSearchError && accumulatedRecipes.length > 0) {
-        console.log('[ЭФФЕКТ НАКОПЛЕНИЯ] Очистка стейта из-за ошибки поиска.');
         setAccumulatedRecipes([]);
       }
-      return; // Выходим из эффекта
+      return;
     }
 
     setAccumulatedRecipes(prev => {
@@ -126,23 +106,19 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
       const newRecipes = recipesFromCurrentFetch;
       const combined = shouldReplace ? newRecipes : [...prev, ...newRecipes];
 
-      // Убираем дубликаты по ID
       const uniqueRecipesMap = new Map<string, Recipe>();
       combined.forEach(recipe => uniqueRecipesMap.set(recipe.id, recipe));
       return Array.from(uniqueRecipesMap.values());
     });
   }, [recipesFromCurrentFetch, currentPage, showAll, searchArgs, isFetchingMoreOrSearching, isSearchError, accumulatedRecipes.length]);
 
-  // --- Логика кнопок пагинации ---
   const displayedCount = accumulatedRecipes.length;
-  // Кнопки показываем только если НЕ идет поиск
   const remaining = searchArgs ? 0 : Math.max(0, totalCount - displayedCount);
   const canLoadMore = remaining > 0 && !showAll;
   const showLoadMoreButton = canLoadMore && remaining > ITEMS_PER_PAGE;
   const showShowAllButton = canLoadMore;
   const showAllCountText = showLoadMoreButton ? ` ${remaining}` : (remaining > 0 ? ` ${remaining}` : '');
 
-  // --- Обработчики событий ---
   const handleLoadMore = () => {
     if (!isFetchingMoreOrSearching) {
       setCurrentPage(p => p + 1);
@@ -156,10 +132,7 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
     }
   };
 
-  // --- Рендеринг ---
-  if (initialLoading) {
-    return <Loader />;
-  }
+  if (initialLoading) return  <Loader />
 
   const hasRecipes = accumulatedRecipes.length > 0;
   const isLoadingMore = isFetchingMoreOrSearching && !initialLoading;

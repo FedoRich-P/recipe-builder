@@ -1,4 +1,4 @@
-import {RecipesState} from "@/features/recipe/model/types/recipe";
+import {RecipesState} from "@/entities/recipe/model/types/recipe";
 
 export const preloadedState: RecipesState = {
     recipes: [

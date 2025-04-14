@@ -1,5 +1,5 @@
 import { FieldError, UseFormRegister } from "react-hook-form";
-import { RecipeFormData } from '@/features/recipe/model/types/recipe';
+import { RecipeFormData } from '@/entities/recipe/model/types/recipe';
 
 type Props = {
   register: UseFormRegister<RecipeFormData>;

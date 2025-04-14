@@ -1,10 +1,10 @@
-import { Recipe } from '@/features/recipe/model/types/recipe';
+import { Recipe } from '@/entities/recipe/model/types/recipe';
 import { ClockIcon, FireIcon } from '@heroicons/react/24/outline';
 import { NavLink } from 'react-router-dom';
 import { IngredientsList } from '@/features/ingredients-filter/ui/IngredientsList';
 import { FavoriteDeleteButtons } from '@/shared/ui/buttons/FavoriteDeleteButtons';
 import { capitalizeWords } from '@/shared/lib/utils/capitalizeWords';
-import { useDeleteRecipeMutation, useToggleFavoriteMutation } from '@/features/recipe/model/recipesApi';
+import { useDeleteRecipeMutation, useToggleFavoriteMutation } from '@/shared/api/recipesApi';
 
 type RecipeItemProps = {
   recipe: Recipe | undefined;
