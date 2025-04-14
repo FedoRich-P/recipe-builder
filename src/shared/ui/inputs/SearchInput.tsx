@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent, useEffect, useState, useRef, useCallback
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { useAutocompleteSuggestions } from '@/shared/lib/hooks/useAutocompleteSuggestions';
-import { SuggestionsList } from '@components/SuggestionsList';
+import { SuggestionsList } from '@/shared/ui/SuggestionsList';
 
 type SearchInputProps = {
   className?: string;

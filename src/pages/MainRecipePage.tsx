@@ -1,13 +1,13 @@
-import { RecipeItem } from '@/features/recipe/ui/RecipeItem';
+import { RecipeItem } from '@/entities/recipe/ui/RecipeItem';
 import { PlusIcon } from '@heroicons/react/24/outline';
 // import { MobileMenuButton } from '@/shared/ui/buttons/MobileMenuButton';
 import { ArrowLeftIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useGetRecipeByIdQuery, useUpdateRecipeMutation } from '@/features/recipe/model/recipesApi';
-import { Loader } from '@components/Loader';
-import { NotFound } from '@/shared/ui/NotFound/NotFound';
-import { RecipeFormData } from '@/features/recipe/model/types/recipe';
+import { useGetRecipeByIdQuery, useUpdateRecipeMutation } from '@/shared/api/recipesApi';
+import { Loader } from '@/shared/ui/Loader';
+import { NotFound } from '@/pages/NotFound/NotFound';
+import { RecipeFormData } from '@/entities/recipe/model/types/recipe';
 import { RecipeForm } from '@/shared/ui/forms/RecipeForm/RecipeForm';
 
 export const MainRecipePage = () => {

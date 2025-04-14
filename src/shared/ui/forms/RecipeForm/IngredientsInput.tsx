@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FieldArrayWithId, UseFieldArrayAppend, UseFieldArrayRemove, UseFormRegister } from 'react-hook-form';
-import { RecipeFormData } from '@/features/recipe/model/types/recipe';
+import { RecipeFormData } from '@/entities/recipe/model/types/recipe';
 import { IngredientInputRow } from '@/shared/ui/forms/RecipeForm/IngredientInputRow';
 
 type IngredientsInputProps = {

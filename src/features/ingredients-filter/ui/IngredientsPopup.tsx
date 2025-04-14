@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useRef } from 'react';
 import { ClipboardIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import ReactDOM from 'react-dom';
-import { Ingredient } from '@/features/recipe/model/types/recipe';
+import { Ingredient } from '@/entities/recipe/model/types/recipe';
 
 export type IngredientsPopupProps = {
   ingredients: Ingredient[];

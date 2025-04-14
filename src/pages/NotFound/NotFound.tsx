@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { customCN } from '@/shared/lib/customCN';
+import { customCN } from '@/shared/lib/utils/customCN';
 
 type NotFoundProps = {
   title?: string;

@@ -1,5 +1,5 @@
-import { Recipe } from '@/features/recipe/model/types/recipe';
-import { RecipeItem } from '@/features/recipe/ui/RecipeItem';
+import { Recipe } from '@/entities/recipe/model/types/recipe';
+import { RecipeItem } from '@/entities/recipe/ui/RecipeItem';
 
 type RecipeItemProps = {
   recipes: Recipe[] | undefined;

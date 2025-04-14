@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/hooks';
-import { selectSelectedIngredients, setSelectedIngredients } from '@/features/recipe/model/recipeSlice';
+import { selectSelectedIngredients, setSelectedIngredients } from '@/entities/recipe/model/recipeSlice';
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import { IngredientList } from '@/shared/ui/ingregients/IngredientList';
 import { SelectedIngredients } from '@/shared/ui/ingregients/SelectedIngredients';
-import { useGetSomeRecipesQuery } from '@/features/recipe/model/recipesApi';
+import { useGetSomeRecipesQuery } from '@/shared/api/recipesApi';
 import { useNavigate } from 'react-router-dom';
 import { getOrderedIngredients } from '@/shared/lib/utils/getOrderedIngredients';
 

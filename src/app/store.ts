@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import {recipeReducer} from "@/features/recipe/model/recipeSlice";
+import {recipeReducer} from "@/entities/recipe/model/recipeSlice";
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { recipesApi } from '@/features/recipe/model/recipesApi';
+import { recipesApi } from '@/shared/api/recipesApi';
 
 export const store = configureStore({
     reducer: {

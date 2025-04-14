@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import { SearchInput } from '@/shared/ui/inputs/SearchInput';
-import { selectSearch, selectSearchType, setSearchTerm, setSearchType } from '@/features/recipe/model/recipeSlice';
+import { selectSearch, selectSearchType, setSearchTerm, setSearchType } from '@/entities/recipe/model/recipeSlice';
 import { StatsCounter } from '@/shared/ui/StatsCounter';
 import { useAppDispatch, useAppSelector } from '@app/hooks';
-import { SearchType } from '@/features/recipe/model/types/recipe';
-import { useGetFavoritesRecipesQuery, useGetRecipesQuery } from '@/features/recipe/model/recipesApi';
+import { SearchType } from '@/entities/recipe/model/types/recipe';
+import { useGetFavoritesRecipesQuery, useGetRecipesQuery } from '@/shared/api/recipesApi';
 import { Navigation } from '@/widgets/navigation/Navigation';
-import { CustomSelect, Option } from '@components/CustomSelect';
+import { CustomSelect, Option } from '@/shared/ui/CustomSelect';
 
 const searchTypeOptions: Option<SearchType>[] = [
   { value: 'name', label: 'По названию' },
