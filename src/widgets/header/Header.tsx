@@ -49,7 +49,7 @@ export const Header = () => {
 
   return (
     <header
-      className="sticky top-0 max-w-[1440px] mx-auto bg-white flex-wrap shadow py-4 px-6 flex items-center justify-around lg:justify-around relative z-1000">
+      className="sticky top-0 max-w-[1440px] mx-auto bg-white flex-wrap shadow py-4 px-6 flex items-center justify-around lg:justify-around z-1000">
       <div className="flex items-baseline gap-2 w-full lg:w-auto flex-wrap relative">
         <SearchInput onSearch={handleSearchUpdate}
                      initialValue={currentSearchTerm}
