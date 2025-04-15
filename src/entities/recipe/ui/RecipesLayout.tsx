@@ -8,7 +8,7 @@ import {
   useSearchRecipesQuery,
   useGetFavoritesRecipesQuery,
   useGetRecipesQuery,
-} from '@/shared/api/recipesApi';
+} from '@/entities/recipe/api/recipesApi';
 import { Recipe } from '@/entities/recipe/model/types/recipe';
 import { ITEMS_PER_PAGE } from '@app/consts';
 
@@ -76,13 +76,12 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
   const recipesFromCurrentFetch = useMemo(() => {
     if (searchArgs) {
       if (isSearchError) {
-        console.log("[recipesFromCurrentFetch] Search error detected, returning [].");
         return [];
       }
       return searchResults || [];
     }
     return pagedData?.recipes || [];
-  }, [searchArgs, searchResults, isSearchError, pagedData]); // Добавили isSearchError
+  }, [searchArgs, searchResults, isSearchError, pagedData]);
 
   useEffect(() => {
     setAccumulatedRecipes([]);
@@ -132,7 +131,16 @@ export const RecipesLayout = ({ favoriteOnly = false }: RecipesLayoutProps) => {
     }
   };
 
-  if (initialLoading) return  <Loader />
+  if (initialLoading) return <Loader />;
+
+  if (searchArgs && isSearchError) {
+    return (
+      <div className="text-center mt-8 text-red-500">
+        Ничего не найдено по запросу: <strong>{searchTerm}</strong>
+      </div>
+    );
+
+  }
 
   const hasRecipes = accumulatedRecipes.length > 0;
   const isLoadingMore = isFetchingMoreOrSearching && !initialLoading;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PlusIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { RecipeForm } from '@/shared/ui/forms/RecipeForm/RecipeForm';
+import { RecipeForm } from '@/features/recipe-form/ui/RecipeForm';
 import { IngredientFilter } from '@/features/ingredients-filter/ui/IngredientFilter';
 import { SortControls } from '@/entities/recipe/ui/SortControls';
 import { MobileMenuButton } from '@/shared/ui/buttons/MobileMenuButton';

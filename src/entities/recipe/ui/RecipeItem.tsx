@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { IngredientsList } from '@/features/ingredients-filter/ui/IngredientsList';
 import { FavoriteDeleteButtons } from '@/shared/ui/buttons/FavoriteDeleteButtons';
 import { capitalizeWords } from '@/shared/lib/utils/capitalizeWords';
-import { useDeleteRecipeMutation, useToggleFavoriteMutation } from '@/shared/api/recipesApi';
+import { useDeleteRecipeMutation, useToggleFavoriteMutation } from '@/entities/recipe/api/recipesApi';
 
 type RecipeItemProps = {
   recipe: Recipe | undefined;

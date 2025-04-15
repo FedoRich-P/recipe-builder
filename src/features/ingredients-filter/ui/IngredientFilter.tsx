@@ -4,7 +4,7 @@ import { selectSelectedIngredients, setSelectedIngredients } from '@/entities/re
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import { IngredientList } from '@/shared/ui/ingregients/IngredientList';
 import { SelectedIngredients } from '@/shared/ui/ingregients/SelectedIngredients';
-import { useGetSomeRecipesQuery } from '@/shared/api/recipesApi';
+import { useGetSomeRecipesQuery } from '@/entities/recipe/api/recipesApi';
 import { useNavigate } from 'react-router-dom';
 import { getOrderedIngredients } from '@/shared/lib/utils/getOrderedIngredients';
 

@@ -1,12 +1,13 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Recipe, SearchType } from '@/entities/recipe/model/types/recipe';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
+import { baseApi } from '@/shared/api/baseApi';
 
 type PaginationArgs = {
   page: number;
   limit: number;
 }
+
 type RecipeFilters = {
   favorite?: boolean;
   [key: string]: any;
@@ -23,12 +24,12 @@ type GetSomeRecipesResponse = {
   recipes: Recipe[];
 }
 
-export const recipesApi = createApi({
-  reducerPath: 'recipes',
-  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_API_BASE_URL}/recipes` }),
-  tagTypes: ['Recipe', 'RecipeList'],
+export const recipesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getSomeRecipes: build.query<GetSomeRecipesResponse, GetSomeRecipesArgs & { sortBy?: string, order?: 'asc' | 'desc' | '' }>( {
+    getSomeRecipes: build.query<GetSomeRecipesResponse, GetSomeRecipesArgs & {
+      sortBy?: string,
+      order?: 'asc' | 'desc' | ''
+    }>({
       query: ({ page = 1, limit = 8, sortBy, order, ...filters }) => ({
         url: '',
         params: {
@@ -36,7 +37,7 @@ export const recipesApi = createApi({
           limit,
           sortBy,
           order,
-          ...filters
+          ...filters,
         },
       }),
       transformResponse: (response: Recipe[]): GetSomeRecipesResponse => ({ recipes: response }),
@@ -51,29 +52,6 @@ export const recipesApi = createApi({
         return [{ type: 'RecipeList', id: listId }];
       },
     }),
-    // getSomeRecipes: build.query<GetSomeRecipesResponse, GetSomeRecipesArgs>({
-    //   query: ({ page = 1, limit = 8, favorite, ingredients }) => {
-    //     const params: Record<string, string | number> = {
-    //       page,
-    //       limit,
-    //       ...(favorite !== undefined && { favorite }),
-    //       ...(ingredients && { 'ingredients.name': ingredients }),  // Здесь добавляем фильтрацию по ингредиентам
-    //     };
-    //
-    //     return { url: '', params };
-    //   },
-    //   transformResponse: (response: Recipe[]): GetSomeRecipesResponse => ({ recipes: response }),
-    //   providesTags: (result, error, args) => {
-    //     const listId = `LIST-${JSON.stringify(args)}`;
-    //     if (result) {
-    //       return [
-    //         ...result.recipes.map(({ id }) => ({ type: 'Recipe' as const, id })),
-    //         { type: 'RecipeList', id: listId },
-    //       ];
-    //     }
-    //     return [{ type: 'RecipeList', id: listId }];
-    //   },
-    // }),
 
     getRecipes: build.query<Recipe[], void>({
       query: () => '',
@@ -103,15 +81,31 @@ export const recipesApi = createApi({
     }),
 
     searchRecipes: build.query<Recipe[], SearchArgs | undefined>({
-      query: (args) => {
+      async queryFn(args, _queryApi, _extraOptions, fetchWithBQ) {
+        if (!args || !args.term) return { data: [] };
 
-        if (!args || !args.term) return '';
+        const allData = await fetchWithBQ('');
 
-        const { term, type } = args;
-        const params: Record<string, string> = {};
-        params[type] = term;
+        if (allData.error) return { error: allData.error as FetchBaseQueryError };
 
-        return { url: '', params};
+        const term = args.term.toLowerCase();
+
+        const recipes = (allData.data as Recipe[]).filter((r) => {
+          switch (args.type) {
+            case 'name':
+              return r.name?.toLowerCase().includes(term);
+            case 'category':
+              return r.category?.toLowerCase().includes(term);
+            case 'ingredient':
+              return r.ingredients?.some((ing) =>
+                ing?.toString().toLowerCase().includes(term)
+              );
+            default:
+              return false;
+          }
+        });
+
+        return { data: recipes };
       },
       providesTags: (result, error, args) => {
         const tagId = args ? `SEARCH-${args.type}-${args.term}` : 'SEARCH-EMPTY';
@@ -180,7 +174,7 @@ export const {
   useToggleFavoriteMutation,
   useCreateRecipeMutation,
   useDeleteRecipeMutation,
-  useUpdateRecipeMutation
+  useUpdateRecipeMutation,
 } = recipesApi;
 
 export type {
@@ -189,3 +183,14 @@ export type {
   FetchBaseQueryError,
   SerializedError,
 };
+
+// query: (args) => {
+//
+//   if (!args || !args.term) return '';
+//
+//   const { term, type } = args;
+//   const params: Record<string, string> = {};
+//   params[type] = term;
+//
+//   return { url: '', params};
+// },
