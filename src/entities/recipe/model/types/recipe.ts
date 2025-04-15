@@ -35,3 +35,15 @@ export type SearchType = 'name' | 'ingredient' | 'category' | 'none';
 export type RecipesState = {
     recipes: Recipe[];
 };
+
+export type RecipeState = {
+    sort: SortOption;
+    search: string;
+    searchType: SearchType;
+    selectedIngredients: string[];
+};
+
+export type PopupPosition = {
+    top: number;
+    left: number;
+}

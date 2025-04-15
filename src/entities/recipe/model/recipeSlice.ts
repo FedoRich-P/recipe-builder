@@ -1,19 +1,5 @@
-// recipeSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SearchType, SortOption } from '@/entities/recipe/model/types/recipe';
-
-
-export type RecipeSortState = {
-  sortType: SortOption | '';
-  sortDirection: 'asc' | 'desc' | '';
-};
-
-export type RecipeState = {
-  sort: SortOption;
-  search: string;
-  searchType: SearchType;
-  selectedIngredients: string[];
-};
+import { RecipeState, SearchType, SortOption } from '@/entities/recipe/model/types/recipe';
 
 const initialState: RecipeState = {
   search: '',

@@ -1,10 +1,10 @@
 import { useState, useRef, memo } from 'react';
 import { Ingredient } from '@/entities/recipe/model/types/recipe';
-import { IngredientsPopup } from '@/features/ingredients-filter/ui/IngredientsPopup';
+import { IngredientsPopup } from '@/features/ingredients-popup/ui/IngredientsPopup';
 import { customCN } from '@/shared/lib/utils/customCN';
 import { capitalizeWords } from '@/shared/lib/utils/capitalizeWords';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ingredientIcons } from '@/shared/lib/utils/ingredientIcons'; // Путь к иконкам
+import { ingredientIcons } from '@/shared/lib/utils/ingredientIcons';
 
 type IngredientsListProps = {
   ingredients: Ingredient[];
